@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.local
+.git
+.venv
+__pycache__
+*.pyc
+evidence
+REPORT.md
+README.md
+configure-env.sh
+manage.py
+run.sh

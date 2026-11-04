@@ -1,0 +1,3 @@
+$ docker exec devops-lab5-optimized-check-1793773056830 id -u
+
+1000

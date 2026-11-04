@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checked_at_utc": "2026-11-04T06:26:55.704Z",
+  "checks": [
+    "React loaded three articles from the live Express API",
+    "Text search filters the live article list",
+    "Category filter and empty-search state work",
+    "Article dialog opens and closes",
+    "Mobile viewport has no horizontal overflow",
+    "No JavaScript page errors"
+  ],
+  "page_errors": []
+}

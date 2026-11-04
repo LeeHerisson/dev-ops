@@ -1,0 +1,3 @@
+$ docker inspect devops-lab5-optimized-check-1793773056830 --format {{json .State}}
+
+{"Status":"exited","Running":false,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":0,"ExitCode":0,"Error":"","StartedAt":"2026-11-04T06:18:05.242289338Z","FinishedAt":"2026-11-04T06:18:10.44763909Z","Health":{"Status":"unhealthy","FailingStreak":0,"Log":[{"Start":"2026-11-04T06:18:10.247366132Z","End":"2026-11-04T06:18:10.334581715Z","ExitCode":0,"Output":""}]}}

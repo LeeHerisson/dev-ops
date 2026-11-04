@@ -1,0 +1,128 @@
+$ docker build --platform linux/arm64 --progress=plain -t devops-lab5-cache-check:local .
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.66kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.3s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:24
+#4 ...
+
+#5 [internal] load metadata for docker.io/library/alpine:3.24
+#5 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/node:24
+#4 DONE 0.4s
+
+#6 [internal] load metadata for docker.io/library/node:24-alpine
+#6 DONE 0.4s
+
+#7 [internal] load .dockerignore
+#7 transferring context: 184B done
+#7 DONE 0.0s
+
+#8 [production-deps 1/4] FROM docker.io/library/node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85
+#8 resolve docker.io/library/node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85 0.0s done
+#8 DONE 0.0s
+
+#9 [runtime 1/7] FROM docker.io/library/alpine:3.24@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a
+#9 resolve docker.io/library/alpine:3.24@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a 0.0s done
+#9 DONE 0.0s
+
+#10 [react-build 1/7] FROM docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413
+#10 resolve docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413 0.0s done
+#10 DONE 0.0s
+
+#11 [internal] load build context
+#11 transferring context: 7.57kB done
+#11 DONE 0.0s
+
+#12 [react-build 2/7] WORKDIR /app/client
+#12 CACHED
+
+#13 [react-build 3/7] COPY client/package.json client/package-lock.json ./
+#13 CACHED
+
+#14 [react-build 4/7] RUN npm ci --no-audit --no-fund
+#14 CACHED
+
+#15 [react-build 5/7] COPY client/public ./public
+#15 CACHED
+
+#16 [react-build 6/7] COPY client/src ./src
+#16 DONE 0.0s
+
+#17 [react-build 7/7] RUN npm run build
+#17 0.129 
+#17 0.129 > devops-lab5-blog-client@1.0.0 build
+#17 0.129 > react-scripts build
+#17 0.129 
+#17 0.606 (node:26) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+#17 0.606 (Use `node --trace-deprecation ...` to show where the warning was created)
+#17 0.608 Creating an optimized production build...
+#17 2.980 Compiled successfully.
+#17 2.980 
+#17 2.980 File sizes after gzip:
+#17 2.980 
+#17 2.986   47.74 kB  build/static/js/main.3da4c4f2.js
+#17 2.986   2.49 kB   build/static/css/main.fa947442.css
+#17 2.986 
+#17 2.986 The project was built assuming it is hosted at /.
+#17 2.986 You can control this with the homepage field in your package.json.
+#17 2.986 
+#17 2.986 The build folder is ready to be deployed.
+#17 2.987 You may serve it with a static server:
+#17 2.987 
+#17 2.987   npm install -g serve
+#17 2.987   serve -s build
+#17 2.987 
+#17 2.987 Find out more about deployment here:
+#17 2.987 
+#17 2.987   https://cra.link/deployment
+#17 2.987 
+#17 DONE 3.0s
+
+#18 [runtime 3/7] WORKDIR /app
+#18 CACHED
+
+#19 [production-deps 2/4] WORKDIR /app
+#19 CACHED
+
+#20 [production-deps 3/4] COPY server/package.json server/package-lock.json ./
+#20 CACHED
+
+#21 [production-deps 4/4] RUN npm ci --omit=dev --no-audit --no-fund     && apk add --no-cache binutils     && ls -l /usr/local/bin/node     && strip --strip-unneeded /usr/local/bin/node     && ls -l /usr/local/bin/node     && node --version
+#21 CACHED
+
+#22 [runtime 2/7] RUN apk add --no-cache libstdc++ ca-certificates     && addgroup -g 1000 node     && adduser -D -u 1000 -G node node
+#22 CACHED
+
+#23 [runtime 4/7] COPY --from=production-deps /usr/local/bin/node /usr/local/bin/node
+#23 CACHED
+
+#24 [runtime 5/7] COPY --from=production-deps /app/node_modules ./node_modules
+#24 CACHED
+
+#25 [runtime 6/7] COPY --chown=node:node server/server.js server/app.js server/posts.json ./
+#25 CACHED
+
+#26 [runtime 7/7] COPY --from=react-build --chown=node:node /app/client/build ./build
+#26 DONE 0.0s
+
+#27 exporting to image
+#27 exporting layers 0.0s done
+#27 exporting manifest sha256:0298a5f12ad76d8d6e8da9cf72dcaf91bd7c28b006141cc78a50e243b18d8e2a done
+#27 exporting config sha256:66188f8bade3faf3d209aae062e4ef9e86f263fd5869636d4a665df0abb029a9 done
+#27 exporting attestation manifest sha256:ad5b3908a9a001097cfacb31eba31bcb4b15f66eb3b7b506b451d152cec0bd05 done
+#27 exporting manifest list sha256:052cbb1a9941ac3bb4909c4bf56018971656b34ca3ca5eb83e20d3d59633c17b done
+#27 naming to docker.io/library/devops-lab5-cache-check:local done
+#27 unpacking to docker.io/library/devops-lab5-cache-check:local done
+#27 DONE 0.1s

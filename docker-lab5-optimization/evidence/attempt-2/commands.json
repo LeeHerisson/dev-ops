@@ -1,0 +1,108 @@
+[
+  {
+    "program": "docker",
+    "args": [
+      "version",
+      "--format",
+      "{{json .}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.032,
+    "evidence": "docker-version.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "build",
+      "--platform",
+      "linux/arm64",
+      "--progress=plain",
+      "-f",
+      "Dockerfile.baseline",
+      "-t",
+      "devops-lab5-baseline:local",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.46,
+    "evidence": "baseline-build.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "build",
+      "--platform",
+      "linux/arm64",
+      "--progress=plain",
+      "-f",
+      "Dockerfile",
+      "-t",
+      "devops-lab5-optimized:local",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 16.102,
+    "evidence": "optimized-build.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "run",
+      "--rm",
+      "--name",
+      "devops-lab5-tests-1793772985771",
+      "--label",
+      "devops.lab=5",
+      "devops-lab5-baseline:local",
+      "npm",
+      "test"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.494,
+    "evidence": "server-tests.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "image",
+      "inspect",
+      "devops-lab5-baseline:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.046,
+    "evidence": "baseline-image-inspect.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "history",
+      "--no-trunc",
+      "devops-lab5-baseline:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.035,
+    "evidence": "baseline-history.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "image",
+      "inspect",
+      "devops-lab5-optimized:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.031,
+    "evidence": "optimized-image-inspect.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "history",
+      "--no-trunc",
+      "devops-lab5-optimized:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.025,
+    "evidence": "optimized-history.txt"
+  }
+]

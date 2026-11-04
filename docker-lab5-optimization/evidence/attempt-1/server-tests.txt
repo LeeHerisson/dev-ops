@@ -1,0 +1,20 @@
+$ docker run --rm --name devops-lab5-tests-1793772493227 --label devops.lab=5 devops-lab5-baseline:local npm test
+
+
+> devops-lab5-blog-server@1.0.0 test
+> node --test tests/*.test.js
+
+✔ health endpoint returns the required contract (29.606834ms)
+✔ posts endpoint supplies the React blog content (3.365041ms)
+✔ unknown API route returns JSON 404 instead of SPA HTML (1.993375ms)
+✔ SPA route receives the production entry point (4.426916ms)
+✔ static JavaScript is served as JavaScript (2.334458ms)
+✔ missing static asset returns 404 instead of HTML (1.828542ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 171.5675

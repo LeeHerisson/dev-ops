@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Docker Shop — лабораторная по сетям</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">Docker Shop</a>
+    <span class="lab">Лабораторная 6 · Docker networking</span>
+  </header>
+  <main>
+    <p class="eyebrow">Магазин для тех, кто собирает</p>
+    <h1>Немного DevOps<br>в повседневной жизни.</h1>
+    <p class="intro">Три товара. Три контейнера. Одна сеть.</p>
+    <div class="layout">
+      <section aria-labelledby="products-title">
+        <h2 id="products-title">Каталог</h2>
+        <div id="products" class="products"></div>
+      </section>
+      <aside class="cart" aria-labelledby="cart-title">
+        <p class="eyebrow">Ваш выбор</p>
+        <h2 id="cart-title">Корзина <span id="cart-count">0</span></h2>
+        <ul id="cart-items"></ul>
+        <p id="empty-cart">Пока пусто. Добавьте первый товар.</p>
+        <div class="total"><span>Итого</span><strong id="cart-total">$0</strong></div>
+        <button id="clear-cart" class="secondary" type="button">Очистить корзину</button>
+        <p id="status" role="status" aria-live="polite">Подключаемся к магазину…</p>
+      </aside>
+    </div>
+  </main>
+  <footer>Nginx → Flask → Redis <span>Учебный магазин · общая демонстрационная корзина</span></footer>
+</body>
+</html>

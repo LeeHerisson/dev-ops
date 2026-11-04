@@ -1,0 +1,55 @@
+{
+  "measured_at_utc": "2026-11-04T06:29:35.671094+00:00",
+  "lab": 8,
+  "run_id": "guard-560fb692",
+  "synthetic_foreign_volume": "devops-lab8-guard-560fb692-dev-data",
+  "checks": [
+    {
+      "name": "CLI refused the occupied volume name",
+      "passed": true
+    },
+    {
+      "name": "Foreign volume data stayed byte-identical",
+      "passed": true
+    },
+    {
+      "name": "Foreign ownership labels stayed unchanged",
+      "passed": true
+    },
+    {
+      "name": "Foreign volume was not recreated",
+      "passed": true
+    },
+    {
+      "name": "Existing successful verification was not overwritten",
+      "passed": true
+    },
+    {
+      "name": "Existing local state was not overwritten",
+      "passed": true
+    },
+    {
+      "name": "Runtime image was not built",
+      "passed": true
+    },
+    {
+      "name": "Test image was not built",
+      "passed": true
+    }
+  ],
+  "command": [
+    "python3",
+    "manage.py",
+    "start",
+    "--run-id",
+    "guard-560fb692"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Resource name collision (volume): devops-lab8-guard-560fb692-dev-data; existing resource was not modified",
+  "marker_sha256_before": "d7d06650af783016ec6b13856b8caccfbebb912419f40493fa1b467261b4e622",
+  "marker_sha256_after": "d7d06650af783016ec6b13856b8caccfbebb912419f40493fa1b467261b4e622",
+  "passed": true,
+  "synthetic_volume_removed": true,
+  "actual_lab_resources_changed": false
+}

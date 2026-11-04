@@ -1,0 +1,3 @@
+$ docker exec devops-lab5-optimized-check-1793773322192 node -p process.arch
+
+arm64

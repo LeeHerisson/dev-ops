@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:54198/api/health",
+  "status": 200,
+  "headers": {
+    "connection": "keep-alive",
+    "content-length": "45",
+    "content-type": "application/json; charset=utf-8",
+    "date": "Wed, 04 Nov 2026 06:18:04 GMT",
+    "etag": "W/\"2d-pfyioYUIamLJYHrVc7FH+q2dFTU\"",
+    "keep-alive": "timeout=5"
+  },
+  "body": "{\"status\":\"ok\",\"message\":\"Server is running\"}"
+}

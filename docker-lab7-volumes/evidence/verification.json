@@ -1,0 +1,301 @@
+{
+  "started_at": "2026-11-04T06:01:18.072383+00:00",
+  "run_id": "20261104-actual",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Инициализация: 4 студента и 3 курса",
+      "passed": true
+    },
+    {
+      "name": "Старый контейнер удалён, новый имеет другой ID",
+      "passed": true
+    },
+    {
+      "name": "Все данные сохранены после замены контейнера",
+      "passed": true
+    },
+    {
+      "name": "pg_dump успешно создал непустой SQL backup",
+      "passed": true
+    },
+    {
+      "name": "SQL restore в отдельный volume: все поля совпали",
+      "passed": true
+    },
+    {
+      "name": "Перед физическим tar PostgreSQL штатно остановлен",
+      "passed": true
+    },
+    {
+      "name": "Физический архив создан",
+      "passed": true
+    },
+    {
+      "name": "Физический restore в отдельный volume: все поля совпали",
+      "passed": true
+    }
+  ],
+  "containers": {
+    "original": "devops-lab7-20261104-actual-db",
+    "replacement": "devops-lab7-20261104-actual-db-replaced",
+    "sql_restore": "devops-lab7-20261104-actual-sql-restore",
+    "physical_restore": "devops-lab7-20261104-actual-physical-restore"
+  },
+  "volumes": {
+    "main": "devops-lab7-20261104-actual-data",
+    "sql_restore": "devops-lab7-20261104-actual-sql-data",
+    "physical_restore": "devops-lab7-20261104-actual-physical-data"
+  },
+  "snapshots": {
+    "before_replacement": {
+      "students": [
+        {
+          "id": 1,
+          "name": "Alice Johnson",
+          "email": "alice@university.edu",
+          "major": "Computer Science",
+          "year": 3,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 2,
+          "name": "Bob Smith",
+          "email": "bob@university.edu",
+          "major": "Mathematics",
+          "year": 2,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 3,
+          "name": "Carol White",
+          "email": "carol@university.edu",
+          "major": "Physics",
+          "year": 4,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 4,
+          "name": "David Brown",
+          "email": "david@university.edu",
+          "major": "Computer Science",
+          "year": 1,
+          "created_at": "2026-11-04T06:04:49.661521"
+        }
+      ],
+      "courses": [
+        {
+          "id": 1,
+          "title": "Database Systems",
+          "credits": 4,
+          "instructor": "Dr. Wilson"
+        },
+        {
+          "id": 2,
+          "title": "Algorithms",
+          "credits": 3,
+          "instructor": "Dr. Martinez"
+        },
+        {
+          "id": 3,
+          "title": "Web Development",
+          "credits": 3,
+          "instructor": "Dr. Anderson"
+        }
+      ]
+    },
+    "after_replacement": {
+      "students": [
+        {
+          "id": 1,
+          "name": "Alice Johnson",
+          "email": "alice@university.edu",
+          "major": "Computer Science",
+          "year": 3,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 2,
+          "name": "Bob Smith",
+          "email": "bob@university.edu",
+          "major": "Mathematics",
+          "year": 2,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 3,
+          "name": "Carol White",
+          "email": "carol@university.edu",
+          "major": "Physics",
+          "year": 4,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 4,
+          "name": "David Brown",
+          "email": "david@university.edu",
+          "major": "Computer Science",
+          "year": 1,
+          "created_at": "2026-11-04T06:04:49.661521"
+        }
+      ],
+      "courses": [
+        {
+          "id": 1,
+          "title": "Database Systems",
+          "credits": 4,
+          "instructor": "Dr. Wilson"
+        },
+        {
+          "id": 2,
+          "title": "Algorithms",
+          "credits": 3,
+          "instructor": "Dr. Martinez"
+        },
+        {
+          "id": 3,
+          "title": "Web Development",
+          "credits": 3,
+          "instructor": "Dr. Anderson"
+        }
+      ]
+    },
+    "sql_restore": {
+      "students": [
+        {
+          "id": 1,
+          "name": "Alice Johnson",
+          "email": "alice@university.edu",
+          "major": "Computer Science",
+          "year": 3,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 2,
+          "name": "Bob Smith",
+          "email": "bob@university.edu",
+          "major": "Mathematics",
+          "year": 2,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 3,
+          "name": "Carol White",
+          "email": "carol@university.edu",
+          "major": "Physics",
+          "year": 4,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 4,
+          "name": "David Brown",
+          "email": "david@university.edu",
+          "major": "Computer Science",
+          "year": 1,
+          "created_at": "2026-11-04T06:04:49.661521"
+        }
+      ],
+      "courses": [
+        {
+          "id": 1,
+          "title": "Database Systems",
+          "credits": 4,
+          "instructor": "Dr. Wilson"
+        },
+        {
+          "id": 2,
+          "title": "Algorithms",
+          "credits": 3,
+          "instructor": "Dr. Martinez"
+        },
+        {
+          "id": 3,
+          "title": "Web Development",
+          "credits": 3,
+          "instructor": "Dr. Anderson"
+        }
+      ]
+    },
+    "physical_restore": {
+      "students": [
+        {
+          "id": 1,
+          "name": "Alice Johnson",
+          "email": "alice@university.edu",
+          "major": "Computer Science",
+          "year": 3,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 2,
+          "name": "Bob Smith",
+          "email": "bob@university.edu",
+          "major": "Mathematics",
+          "year": 2,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 3,
+          "name": "Carol White",
+          "email": "carol@university.edu",
+          "major": "Physics",
+          "year": 4,
+          "created_at": "2026-11-04T06:04:49.661521"
+        },
+        {
+          "id": 4,
+          "name": "David Brown",
+          "email": "david@university.edu",
+          "major": "Computer Science",
+          "year": 1,
+          "created_at": "2026-11-04T06:04:49.661521"
+        }
+      ],
+      "courses": [
+        {
+          "id": 1,
+          "title": "Database Systems",
+          "credits": 4,
+          "instructor": "Dr. Wilson"
+        },
+        {
+          "id": 2,
+          "title": "Algorithms",
+          "credits": 3,
+          "instructor": "Dr. Martinez"
+        },
+        {
+          "id": 3,
+          "title": "Web Development",
+          "credits": 3,
+          "instructor": "Dr. Anderson"
+        }
+      ]
+    }
+  },
+  "engine": "29.9.2/linux/arm64",
+  "postgres_image_id": "sha256:54e0dd8e8cddcdbb9156c2486eed5a43eccb7214d7c6828097d41ce049fb3984",
+  "container_replacement": {
+    "old_id": "7a67d13d5b47e37a74dbee5f663f31f16dbbbc80efbe7eddb551d7be15e4565c",
+    "new_id": "fa9d3f70609fac7d88ddce4b3318cf01a164a6fb13b24ba65b7d6041738e8bf2"
+  },
+  "sql_backup": {
+    "path": "evidence/backup.sql",
+    "bytes": 3839,
+    "sha256": "b9e3530e2f06fb29acb0538b1f82cd9c92bb24e5ac04821998c8c3e6dcaf6c1b"
+  },
+  "physical_backup": {
+    "path": "/Users/herisson/Documents/Codex/2026-11-02/new-chat/work/lab7-backups/20261104-actual/postgres-volume-backup.tar.gz",
+    "bytes": 6693532,
+    "sha256": "aea6dddd4d3a3f1e9c769debcf2c0f162cbfb65328125de014c2b785c516dfe6",
+    "database_stopped": true,
+    "delivered_local_copy": ".local/backups/20261104-actual/postgres-volume-backup.tar.gz"
+  },
+  "final_container_states": {
+    "d5fd345cf103": "exited",
+    "90e0818b438b": "exited",
+    "fa9d3f70609f": "exited"
+  },
+  "all_own_containers_stopped": true,
+  "finished_at": "2026-11-04T06:05:09.635810+00:00"
+}

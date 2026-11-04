@@ -1,0 +1,300 @@
+2026-11-04T06:12:04.5359878Z Current runner version: '2.338.2'
+2026-11-04T06:12:04.5382345Z ##[group]Runner Image Provisioner
+2026-11-04T06:12:04.5383281Z Hosted Compute Agent
+2026-11-04T06:12:04.5383845Z Version: 20261021.618
+2026-11-04T06:12:04.5384380Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-04T06:12:04.5385007Z Build Date: 2026-10-21T00:45:21Z
+2026-11-04T06:12:04.5385651Z Worker ID: {f3f4afcf-5be1-40f9-9d4a-b729c1e39c49}
+2026-11-04T06:12:04.5386291Z Region: eastus
+2026-11-04T06:12:04.5386800Z Cloud: Azure
+2026-11-04T06:12:04.5387301Z ##[endgroup]
+2026-11-04T06:12:04.5388508Z ##[group]Operating System
+2026-11-04T06:12:04.5389102Z Ubuntu
+2026-11-04T06:12:04.5389578Z 24.04.5
+2026-11-04T06:12:04.5390075Z LTS
+2026-11-04T06:12:04.5390532Z ##[endgroup]
+2026-11-04T06:12:04.5391037Z ##[group]Runner Image
+2026-11-04T06:12:04.5391842Z Image: ubuntu-24.04
+2026-11-04T06:12:04.5392396Z Version: 20261025.353.1
+2026-11-04T06:12:04.5393470Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-04T06:12:04.5394728Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-11-04T06:12:04.5395662Z ##[endgroup]
+2026-11-04T06:12:04.5396605Z ##[group]GITHUB_TOKEN Permissions
+2026-11-04T06:12:04.5398476Z Contents: read
+2026-11-04T06:12:04.5399023Z Metadata: read
+2026-11-04T06:12:04.5399589Z ##[endgroup]
+2026-11-04T06:12:04.5401314Z Secret source: Actions
+2026-11-04T06:12:04.5402418Z Cache mode: write
+2026-11-04T06:12:04.5403095Z Prepare workflow directory
+2026-11-04T06:12:04.5715437Z Prepare all required actions
+2026-11-04T06:12:04.5756027Z Getting action download info
+2026-11-04T06:12:04.7869613Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-04T06:12:04.8975664Z Download action repository 'actions/setup-python@v7' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-04T06:12:05.1822142Z Complete job name: Test Python 3.12
+2026-11-04T06:12:05.2535071Z ##[group]Run actions/checkout@v7
+2026-11-04T06:12:05.2535802Z with:
+2026-11-04T06:12:05.2536188Z   repository: LeeHerisson/dev-ops
+2026-11-04T06:12:05.2539270Z   token: ***
+2026-11-04T06:12:05.2539634Z   ssh-strict: true
+2026-11-04T06:12:05.2539995Z   ssh-user: git
+2026-11-04T06:12:05.2540357Z   persist-credentials: true
+2026-11-04T06:12:05.2540755Z   clean: true
+2026-11-04T06:12:05.2541124Z   sparse-checkout-cone-mode: true
+2026-11-04T06:12:05.2541696Z   fetch-depth: 1
+2026-11-04T06:12:05.2542053Z   fetch-tags: false
+2026-11-04T06:12:05.2542414Z   show-progress: true
+2026-11-04T06:12:05.2542779Z   lfs: false
+2026-11-04T06:12:05.2543117Z   submodules: false
+2026-11-04T06:12:05.2543486Z   set-safe-directory: true
+2026-11-04T06:12:05.2543907Z   allow-unsafe-pr-checkout: false
+2026-11-04T06:12:05.2544488Z ##[endgroup]
+2026-11-04T06:12:05.5023976Z Syncing repository: LeeHerisson/dev-ops
+2026-11-04T06:12:05.5026391Z ##[group]Getting Git version info
+2026-11-04T06:12:05.5027377Z Working directory is '/home/runner/work/dev-ops/dev-ops'
+2026-11-04T06:12:05.5028319Z [command]/usr/bin/git version
+2026-11-04T06:12:05.5102294Z git version 2.56.0
+2026-11-04T06:12:05.5122326Z ##[endgroup]
+2026-11-04T06:12:05.5146244Z Temporarily overriding HOME='/home/runner/work/_temp/dcd0bb72-acf0-4286-9284-4b953f0c7fcb' before making global git config changes
+2026-11-04T06:12:05.5148284Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T06:12:05.5151956Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/dev-ops/dev-ops
+2026-11-04T06:12:05.5199669Z Deleting the contents of '/home/runner/work/dev-ops/dev-ops'
+2026-11-04T06:12:05.5208182Z ##[group]Determining repository object format
+2026-11-04T06:12:05.5209484Z ##[endgroup]
+2026-11-04T06:12:05.5210500Z ##[group]Initializing the repository
+2026-11-04T06:12:05.5211434Z [command]/usr/bin/git init /home/runner/work/dev-ops/dev-ops
+2026-11-04T06:12:05.5316875Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-04T06:12:05.5318264Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-04T06:12:05.5319125Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-04T06:12:05.5319999Z hint: call:
+2026-11-04T06:12:05.5320411Z hint:
+2026-11-04T06:12:05.5320933Z hint: 	git config --global init.defaultBranch <name>
+2026-11-04T06:12:05.5321723Z hint:
+2026-11-04T06:12:05.5322532Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-04T06:12:05.5323675Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-04T06:12:05.5324379Z hint:
+2026-11-04T06:12:05.5324792Z hint: 	git branch -m <name>
+2026-11-04T06:12:05.5325266Z hint:
+2026-11-04T06:12:05.5326135Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-04T06:12:05.5329074Z Initialized empty Git repository in /home/runner/work/dev-ops/dev-ops/.git/
+2026-11-04T06:12:05.5344191Z [command]/usr/bin/git remote add origin https://github.com/LeeHerisson/dev-ops
+2026-11-04T06:12:05.5390699Z ##[endgroup]
+2026-11-04T06:12:05.5392221Z ##[group]Disabling automatic garbage collection
+2026-11-04T06:12:05.5394497Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-04T06:12:05.5428600Z ##[endgroup]
+2026-11-04T06:12:05.5429856Z ##[group]Setting up auth
+2026-11-04T06:12:05.5430923Z Removing SSH command configuration
+2026-11-04T06:12:05.5435744Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T06:12:05.5472177Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T06:12:05.5839710Z Removing HTTP extra header
+2026-11-04T06:12:05.5846489Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T06:12:05.5894427Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T06:12:05.6137294Z Removing includeIf entries pointing to credentials config files
+2026-11-04T06:12:05.6138448Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T06:12:05.6176735Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T06:12:05.6398625Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-04T06:12:05.6441446Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/dev-ops/dev-ops/.git.path /home/runner/work/_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:05.6478792Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/dev-ops/dev-ops/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:05.6516693Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:05.6555590Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:05.6590103Z ##[endgroup]
+2026-11-04T06:12:05.6590866Z ##[group]Fetching the repository
+2026-11-04T06:12:05.6595360Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4dbad6bd4297e0a1113235322624b241a6e6fd60:refs/remotes/pull/5/merge
+2026-11-04T06:12:05.9592806Z From https://github.com/LeeHerisson/dev-ops
+2026-11-04T06:12:05.9594708Z  * [new ref]         4dbad6bd4297e0a1113235322624b241a6e6fd60 -> pull/5/merge
+2026-11-04T06:12:05.9598800Z ##[endgroup]
+2026-11-04T06:12:05.9600094Z ##[group]Determining the checkout info
+2026-11-04T06:12:05.9601468Z ##[endgroup]
+2026-11-04T06:12:05.9603028Z [command]/usr/bin/git sparse-checkout disable
+2026-11-04T06:12:05.9660219Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-04T06:12:05.9697599Z ##[group]Checking out the ref
+2026-11-04T06:12:05.9700600Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/5/merge
+2026-11-04T06:12:05.9817927Z Note: switching to 'refs/remotes/pull/5/merge'.
+2026-11-04T06:12:05.9818948Z 
+2026-11-04T06:12:05.9819694Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-04T06:12:05.9821457Z changes and commit them, and you can discard any commits you make in this
+2026-11-04T06:12:05.9823198Z state without impacting any branches by switching back to a branch.
+2026-11-04T06:12:05.9824420Z 
+2026-11-04T06:12:05.9825340Z If you want to create a new branch to retain commits you create, you may
+2026-11-04T06:12:05.9827289Z do so (now or later) by using -c with the switch command. Example:
+2026-11-04T06:12:05.9828411Z 
+2026-11-04T06:12:05.9828889Z   git switch -c <new-branch-name>
+2026-11-04T06:12:05.9829705Z 
+2026-11-04T06:12:05.9830232Z Or undo this operation with:
+2026-11-04T06:12:05.9831162Z 
+2026-11-04T06:12:05.9831937Z   git switch -
+2026-11-04T06:12:05.9832829Z 
+2026-11-04T06:12:05.9834066Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-04T06:12:05.9835572Z 
+2026-11-04T06:12:05.9837172Z HEAD is now at 4dbad6b Merge 0fd8c5553d9380acb40407db92ca2503dc42a517 into f668d65174e1be3a511246b11f168048e0430ed6
+2026-11-04T06:12:05.9842662Z ##[endgroup]
+2026-11-04T06:12:05.9881096Z [command]/usr/bin/git log -1 --format=%H
+2026-11-04T06:12:05.9912895Z 4dbad6bd4297e0a1113235322624b241a6e6fd60
+2026-11-04T06:12:06.0325331Z ##[group]Run actions/setup-python@v7
+2026-11-04T06:12:06.0326359Z with:
+2026-11-04T06:12:06.0327089Z   python-version: 3.12
+2026-11-04T06:12:06.0327923Z   check-latest: false
+2026-11-04T06:12:06.0335904Z   token: ***
+2026-11-04T06:12:06.0337029Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-04T06:12:06.0338429Z   update-environment: true
+2026-11-04T06:12:06.0339337Z   allow-prereleases: false
+2026-11-04T06:12:06.0340209Z   freethreaded: false
+2026-11-04T06:12:06.0341006Z ##[endgroup]
+2026-11-04T06:12:06.1342996Z ##[group]Installed versions
+2026-11-04T06:12:06.2115998Z Successfully set up CPython (3.12.15)
+2026-11-04T06:12:06.2118208Z ##[endgroup]
+2026-11-04T06:12:06.2316682Z ##[group]Run python -m pip install -r requirements-dev.txt
+2026-11-04T06:12:06.2318672Z [36;1mpython -m pip install -r requirements-dev.txt[0m
+2026-11-04T06:12:06.2372710Z shell: /usr/bin/bash -e {0}
+2026-11-04T06:12:06.2374138Z env:
+2026-11-04T06:12:06.2375410Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:06.2377330Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-11-04T06:12:06.2379264Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:06.2381320Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:06.2383312Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:06.2385010Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-11-04T06:12:06.2386224Z ##[endgroup]
+2026-11-04T06:12:07.3933590Z Collecting Flask==3.1.3 (from -r /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd/requirements.txt (line 1))
+2026-11-04T06:12:07.4485300Z   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+2026-11-04T06:12:07.4594948Z Collecting blinker==1.9.0 (from -r /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd/requirements.txt (line 2))
+2026-11-04T06:12:07.4680820Z   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+2026-11-04T06:12:07.4793556Z Collecting click==8.5.0 (from -r /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd/requirements.txt (line 3))
+2026-11-04T06:12:07.4872245Z   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+2026-11-04T06:12:07.4956095Z Collecting itsdangerous==2.2.0 (from -r /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd/requirements.txt (line 4))
+2026-11-04T06:12:07.5066149Z   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+2026-11-04T06:12:07.5425788Z Collecting Jinja2==3.1.6 (from -r /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd/requirements.txt (line 5))
+2026-11-04T06:12:07.5510713Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-04T06:12:07.5929941Z Collecting MarkupSafe==3.0.4 (from -r /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd/requirements.txt (line 6))
+2026-11-04T06:12:07.6013368Z   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-04T06:12:07.6137303Z Collecting Werkzeug==3.1.9 (from -r /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd/requirements.txt (line 7))
+2026-11-04T06:12:07.6219044Z   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+2026-11-04T06:12:07.6392333Z Collecting pytest==8.4.2 (from -r requirements-dev.txt (line 2))
+2026-11-04T06:12:07.6579834Z   Downloading pytest-8.4.2-py3-none-any.whl.metadata (7.7 kB)
+2026-11-04T06:12:07.6710160Z Collecting iniconfig>=1 (from pytest==8.4.2->-r requirements-dev.txt (line 2))
+2026-11-04T06:12:07.6792867Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-04T06:12:07.6913019Z Collecting packaging>=20 (from pytest==8.4.2->-r requirements-dev.txt (line 2))
+2026-11-04T06:12:07.6998990Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-04T06:12:07.7098014Z Collecting pluggy<2,>=1.5 (from pytest==8.4.2->-r requirements-dev.txt (line 2))
+2026-11-04T06:12:07.7179268Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-04T06:12:07.7311409Z Collecting pygments>=2.7.2 (from pytest==8.4.2->-r requirements-dev.txt (line 2))
+2026-11-04T06:12:07.7394533Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-04T06:12:07.7616808Z Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+2026-11-04T06:12:07.7825297Z Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+2026-11-04T06:12:07.7924184Z Downloading click-8.5.0-py3-none-any.whl (125 kB)
+2026-11-04T06:12:07.8036017Z Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2026-11-04T06:12:07.8133508Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-04T06:12:07.8241394Z Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-11-04T06:12:07.8344217Z Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+2026-11-04T06:12:07.8467686Z Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+2026-11-04T06:12:07.8596489Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-04T06:12:07.8694125Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-04T06:12:07.8787358Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-04T06:12:07.8889636Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-04T06:12:07.9040142Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 77.5 MB/s  0:00:00
+2026-11-04T06:12:07.9606378Z Installing collected packages: pygments, pluggy, packaging, MarkupSafe, itsdangerous, iniconfig, click, blinker, Werkzeug, pytest, Jinja2, Flask
+2026-11-04T06:12:09.1994166Z 
+2026-11-04T06:12:09.2008445Z Successfully installed Flask-3.1.3 Jinja2-3.1.6 MarkupSafe-3.0.4 Werkzeug-3.1.9 blinker-1.9.0 click-8.5.0 iniconfig-2.3.1 itsdangerous-2.2.0 packaging-26.3 pluggy-1.7.0 pygments-2.21.0 pytest-8.4.2
+2026-11-04T06:12:09.2015690Z 
+2026-11-04T06:12:09.2015928Z [notice] A new release of pip is available: 26.2.2 -> 26.3
+2026-11-04T06:12:09.2016296Z [notice] To update, run: pip install --upgrade pip
+2026-11-04T06:12:09.2507307Z ##[group]Run python -m pytest -v
+2026-11-04T06:12:09.2507578Z [36;1mpython -m pytest -v[0m
+2026-11-04T06:12:09.2527256Z shell: /usr/bin/bash -e {0}
+2026-11-04T06:12:09.2527480Z env:
+2026-11-04T06:12:09.2527708Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:09.2528219Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-11-04T06:12:09.2528548Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:09.2528850Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:09.2529147Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-11-04T06:12:09.2529441Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-11-04T06:12:09.2529696Z ##[endgroup]
+2026-11-04T06:12:09.5585674Z ============================= test session starts ==============================
+2026-11-04T06:12:09.5586478Z platform linux -- Python 3.12.15, pytest-8.4.2, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.12.15/x64/bin/python
+2026-11-04T06:12:09.5587058Z cachedir: .pytest_cache
+2026-11-04T06:12:09.5587404Z rootdir: /home/runner/work/dev-ops/dev-ops/docker-lab10-cicd
+2026-11-04T06:12:09.5587811Z configfile: pytest.ini
+2026-11-04T06:12:09.5588076Z testpaths: tests
+2026-11-04T06:12:09.5702246Z collecting ... collected 10 items
+2026-11-04T06:12:09.5702479Z 
+2026-11-04T06:12:09.6084577Z tests/test_extended.py::test_second_todo_has_id_two PASSED               [ 10%]
+2026-11-04T06:12:09.6094655Z tests/test_extended.py::test_title_is_trimmed PASSED                     [ 20%]
+2026-11-04T06:12:09.6105068Z tests/test_extended.py::test_whitespace_title_is_rejected PASSED         [ 30%]
+2026-11-04T06:12:09.6113880Z tests/test_extended.py::test_json_array_is_rejected PASSED               [ 40%]
+2026-11-04T06:12:09.6122425Z tests/test_extended.py::test_non_string_title_is_rejected PASSED         [ 50%]
+2026-11-04T06:12:09.6131838Z tests/test_extended.py::test_long_title_is_rejected PASSED               [ 60%]
+2026-11-04T06:12:09.6320612Z tests/test_main.py::test_health FAILED                                   [ 70%]
+2026-11-04T06:12:09.6330169Z tests/test_main.py::test_list_is_empty_at_start PASSED                   [ 80%]
+2026-11-04T06:12:09.6341658Z tests/test_main.py::test_add_todo PASSED                                 [ 90%]
+2026-11-04T06:12:09.6620731Z tests/test_main.py::test_add_todo_without_title PASSED                   [100%]
+2026-11-04T06:12:09.6621264Z 
+2026-11-04T06:12:09.6621434Z =================================== FAILURES ===================================
+2026-11-04T06:12:09.6622088Z _________________________________ test_health __________________________________
+2026-11-04T06:12:09.6622413Z 
+2026-11-04T06:12:09.6622555Z client = <FlaskClient <Flask 'app.main'>>
+2026-11-04T06:12:09.6622783Z 
+2026-11-04T06:12:09.6622927Z     def test_health(client):
+2026-11-04T06:12:09.6623237Z         response = client.get("/health")
+2026-11-04T06:12:09.6623584Z         assert response.status_code == 200
+2026-11-04T06:12:09.6623993Z >       assert response.get_json() == {"status": "ok"}
+2026-11-04T06:12:09.6624350Z E       AssertionError: assert {'status': 'OK'} == {'status': 'ok'}
+2026-11-04T06:12:09.6624624Z E         
+2026-11-04T06:12:09.6624791Z E         Differing items:
+2026-11-04T06:12:09.6625003Z E         {'status': 'OK'} != {'status': 'ok'}
+2026-11-04T06:12:09.6625212Z E         
+2026-11-04T06:12:09.6625367Z E         Full diff:
+2026-11-04T06:12:09.6625533Z E           {
+2026-11-04T06:12:09.6625705Z E         -     'status': 'ok',
+2026-11-04T06:12:09.6625899Z E         ?                ^^
+2026-11-04T06:12:09.6626083Z E         +     'status': 'OK',
+2026-11-04T06:12:09.6626259Z E         ?                ^^
+2026-11-04T06:12:09.6626430Z E           }
+2026-11-04T06:12:09.6626522Z 
+2026-11-04T06:12:09.6626616Z tests/test_main.py:4: AssertionError
+2026-11-04T06:12:09.6626881Z =========================== short test summary info ============================
+2026-11-04T06:12:09.6627656Z FAILED tests/test_main.py::test_health - AssertionError: assert {'status': 'OK'} == {'status': 'ok'}
+2026-11-04T06:12:09.6628024Z   
+2026-11-04T06:12:09.6628177Z   Differing items:
+2026-11-04T06:12:09.6628357Z   {'status': 'OK'} != {'status': 'ok'}
+2026-11-04T06:12:09.6628548Z   
+2026-11-04T06:12:09.6628693Z   Full diff:
+2026-11-04T06:12:09.6628976Z     {
+2026-11-04T06:12:09.6629132Z   -     'status': 'ok',
+2026-11-04T06:12:09.6629329Z   ?                ^^
+2026-11-04T06:12:09.6629502Z   +     'status': 'OK',
+2026-11-04T06:12:09.6629665Z   ?                ^^
+2026-11-04T06:12:09.6629818Z     }
+2026-11-04T06:12:09.6630016Z ========================= 1 failed, 9 passed in 0.08s ==========================
+2026-11-04T06:12:09.6921943Z ##[error]Process completed with exit code 1.
+2026-11-04T06:12:09.7039643Z Post job cleanup.
+2026-11-04T06:12:09.7779793Z [command]/usr/bin/git version
+2026-11-04T06:12:09.7818321Z git version 2.56.0
+2026-11-04T06:12:09.7850331Z Temporarily overriding HOME='/home/runner/work/_temp/f74e87c1-2441-42a8-ba68-6e8e707b2747' before making global git config changes
+2026-11-04T06:12:09.7851076Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T06:12:09.7854770Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/dev-ops/dev-ops
+2026-11-04T06:12:09.7885899Z Removing SSH command configuration
+2026-11-04T06:12:09.7891443Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T06:12:09.7925879Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T06:12:09.8169967Z Removing HTTP extra header
+2026-11-04T06:12:09.8175802Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T06:12:09.8215841Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T06:12:09.8440425Z Removing includeIf entries pointing to credentials config files
+2026-11-04T06:12:09.8445042Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T06:12:09.8481897Z includeif.gitdir:/home/runner/work/dev-ops/dev-ops/.git.path
+2026-11-04T06:12:09.8482670Z includeif.gitdir:/home/runner/work/dev-ops/dev-ops/.git/worktrees/*.path
+2026-11-04T06:12:09.8483410Z includeif.gitdir:/github/workspace/.git.path
+2026-11-04T06:12:09.8484110Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-04T06:12:09.8502526Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/dev-ops/dev-ops/.git.path
+2026-11-04T06:12:09.8553612Z /home/runner/work/_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:09.8583852Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/dev-ops/dev-ops/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-60db9c37\-ab85\-4387\-886d\-fa64fde1ed61\.config
+2026-11-04T06:12:09.8620310Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/dev-ops/dev-ops/.git/worktrees/*.path
+2026-11-04T06:12:09.8657146Z /home/runner/work/_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:09.8666818Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/dev-ops/dev-ops/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-60db9c37\-ab85\-4387\-886d\-fa64fde1ed61\.config
+2026-11-04T06:12:09.8714001Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-04T06:12:09.8748746Z /github/runner_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:09.8756703Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-60db9c37\-ab85\-4387\-886d\-fa64fde1ed61\.config
+2026-11-04T06:12:09.8797335Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-04T06:12:09.8827332Z /github/runner_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config
+2026-11-04T06:12:09.8833353Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-60db9c37\-ab85\-4387\-886d\-fa64fde1ed61\.config
+2026-11-04T06:12:09.8872826Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T06:12:09.9078858Z Removing credentials config '/home/runner/work/_temp/git-credentials-60db9c37-ab85-4387-886d-fa64fde1ed61.config'
+2026-11-04T06:12:09.9210762Z Cleaning up orphan processes
+

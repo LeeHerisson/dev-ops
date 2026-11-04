@@ -1,0 +1,11 @@
+v24.22.2
+-rwxr-xr-x    1 root     root      122.2M Oct 28 21:34 /usr/local/bin/node
+	/lib/ld-musl-aarch64.so.1 (0xffffa4370000)
+	libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0xffff9d82a000)
+	libgcc_s.so.1 => /usr/lib/libgcc_s.so.1 (0xffff9d7f9000)
+	libc.musl-aarch64.so.1 => /lib/ld-musl-aarch64.so.1 (0xffffa4370000)
+6.6M	/usr/local/include
+18.8M	/usr/local/lib
+5.1M	/opt
+122.3M	/usr/local/bin
+-rwxr-xr-x    1 root     root        723480 Oct 21 15:50 /lib/ld-musl-aarch64.so.1

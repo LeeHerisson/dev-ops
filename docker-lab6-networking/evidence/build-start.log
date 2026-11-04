@@ -1,0 +1,240 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 645B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 9.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 84B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 1.95kB done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+#6 resolve docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30 0.0s done
+#6 sha256:64074ecd150a3526f7ef1af3128b9186744abfb9dc3d1c3e87c11c1ea880cbd0 0B / 251B 0.2s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 0B / 12.06MB 0.2s
+#6 sha256:0922d1fc1a5f7baa280015c744bb0be989e6e146a9181c04d2971e1273416844 0B / 1.27MB 0.2s
+#6 sha256:64074ecd150a3526f7ef1af3128b9186744abfb9dc3d1c3e87c11c1ea880cbd0 251B / 251B 0.6s done
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 1.05MB / 12.06MB 5.3s
+#6 sha256:0922d1fc1a5f7baa280015c744bb0be989e6e146a9181c04d2971e1273416844 0B / 1.27MB 5.3s
+#6 sha256:0922d1fc1a5f7baa280015c744bb0be989e6e146a9181c04d2971e1273416844 1.05MB / 1.27MB 6.3s
+#6 sha256:0922d1fc1a5f7baa280015c744bb0be989e6e146a9181c04d2971e1273416844 1.27MB / 1.27MB 8.5s done
+#6 extracting sha256:0922d1fc1a5f7baa280015c744bb0be989e6e146a9181c04d2971e1273416844 0.1s done
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 2.10MB / 12.06MB 8.9s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 3.15MB / 12.06MB 11.6s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 4.19MB / 12.06MB 12.5s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 5.24MB / 12.06MB 14.9s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 6.29MB / 12.06MB 15.9s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 7.34MB / 12.06MB 17.0s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 8.39MB / 12.06MB 18.5s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 9.44MB / 12.06MB 20.4s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 10.49MB / 12.06MB 21.2s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 11.53MB / 12.06MB 25.1s
+#6 sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 12.06MB / 12.06MB 28.3s done
+#6 extracting sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311
+#6 extracting sha256:b41621e272b0b306c196fabab6f5e0132d1c13f3c929bfb63455191fa509e311 0.2s done
+#6 DONE 28.6s
+
+#6 [1/5] FROM docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+#6 extracting sha256:64074ecd150a3526f7ef1af3128b9186744abfb9dc3d1c3e87c11c1ea880cbd0 done
+#6 DONE 28.6s
+
+#7 [2/5] WORKDIR /app
+#7 DONE 0.1s
+
+#8 [3/5] COPY requirements.txt ./
+#8 DONE 0.0s
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt     && useradd --create-home --uid 10001 appuser
+#9 1.678 Collecting Flask==3.1.3 (from -r requirements.txt (line 1))
+#9 2.646   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#9 2.830 Collecting redis==5.0.1 (from -r requirements.txt (line 2))
+#9 3.000   Downloading redis-5.0.1-py3-none-any.whl.metadata (8.9 kB)
+#9 3.163 Collecting gunicorn==23.0.0 (from -r requirements.txt (line 3))
+#9 3.327   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+#9 3.522 Collecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 3.718   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#9 3.893 Collecting click>=8.1.3 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 4.052   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 4.214 Collecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 4.313   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#9 4.428 Collecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 4.565   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#9 4.994 Collecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 5.114   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#9 5.372 Collecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 5.680   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#9 6.114 Collecting packaging (from gunicorn==23.0.0->-r requirements.txt (line 3))
+#9 6.331   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#9 6.678 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#9 7.997 Downloading redis-5.0.1-py3-none-any.whl (250 kB)
+#9 9.310 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+#9 9.552 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#9 9.644 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 10.14 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#9 10.28 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#9 10.71 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (24 kB)
+#9 11.14 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#9 12.22 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#9 12.50 Installing collected packages: redis, packaging, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, gunicorn, Flask
+#9 12.99 Successfully installed Flask-3.1.3 blinker-1.9.0 click-8.5.0 gunicorn-23.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 packaging-26.3 redis-5.0.1 werkzeug-3.1.9
+#9 12.99 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 13.65 
+#9 13.65 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#9 13.65 [notice] To update, run: pip install --upgrade pip
+#9 DONE 13.8s
+
+#10 [5/5] COPY --chown=appuser:appuser app.py ./
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.5s done
+#11 exporting manifest sha256:11ad7c9e64794a2b9366da8a7392e586911154c13b9890116153e4fb3fc0e21a done
+#11 exporting config sha256:5263f9b247e6d529e301aaeabe8cb67109a1bf3e73c8eb912591632ca56f847a done
+#11 exporting attestation manifest sha256:d773329e127d2d1d0ba011ada6e12eb2080d01f69a4f2feb8bb2815fc01aecf8 done
+#11 exporting manifest list sha256:1be8ee3be131718cb88c6524486b0a3c5391ddb57ff4fddcaa859fc4a7eb97ea done
+#11 naming to docker.io/library/devops-lab6-backend:1.0 done
+#11 unpacking to docker.io/library/devops-lab6-backend:1.0
+#11 unpacking to docker.io/library/devops-lab6-backend:1.0 0.5s done
+#11 DONE 1.0s
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 299B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 ...
+
+#3 [auth] library/nginx:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 7.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 73B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 7.83kB done
+#5 DONE 0.0s
+
+#6 [1/3] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
+#6 resolve docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606 0.0s done
+#6 extracting sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 0.1s done
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 0B / 20.11MB 0.3s
+#6 sha256:c2fefbef531492feca04133b10436cc9783fce87888d03b115887db02b4f0610 0B / 1.40kB 0.3s
+#6 sha256:567a969e02211a0b0f51a1ac9b901e1bf88b7c79dbb994979df79b328fb64ab6 0B / 1.21kB 0.3s
+#6 sha256:dbb1ef19121a83d4810308cc89451dd32a5fafdf8d17da3f7c3a88a3edd70573 0B / 404B 0.2s
+#6 sha256:c2fefbef531492feca04133b10436cc9783fce87888d03b115887db02b4f0610 1.40kB / 1.40kB 2.5s done
+#6 sha256:f523b340a6c003e3b253f885115ab55af1d1f6a12a3fed8203adbe67173d805f 0B / 964B 0.2s
+#6 sha256:567a969e02211a0b0f51a1ac9b901e1bf88b7c79dbb994979df79b328fb64ab6 1.21kB / 1.21kB 3.2s done
+#6 sha256:dbb1ef19121a83d4810308cc89451dd32a5fafdf8d17da3f7c3a88a3edd70573 404B / 404B 3.2s done
+#6 sha256:7b9d02243238d0f039c78eac1c532b5cc281e680fedbb27aec087a6e8c85e0a1 0B / 629B 0.2s
+#6 sha256:1408044c7403b2c319cdbb2cb2d18025d7997a703c1c1115dec6ae21fff824d3 0B / 1.96MB 0.2s
+#6 sha256:f523b340a6c003e3b253f885115ab55af1d1f6a12a3fed8203adbe67173d805f 964B / 964B 2.4s done
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 0B / 20.11MB 5.4s
+#6 sha256:7b9d02243238d0f039c78eac1c532b5cc281e680fedbb27aec087a6e8c85e0a1 629B / 629B 2.3s done
+#6 sha256:1408044c7403b2c319cdbb2cb2d18025d7997a703c1c1115dec6ae21fff824d3 1.05MB / 1.96MB 5.1s
+#6 sha256:1408044c7403b2c319cdbb2cb2d18025d7997a703c1c1115dec6ae21fff824d3 1.96MB / 1.96MB 5.6s done
+#6 extracting sha256:1408044c7403b2c319cdbb2cb2d18025d7997a703c1c1115dec6ae21fff824d3 0.1s done
+#6 extracting sha256:7b9d02243238d0f039c78eac1c532b5cc281e680fedbb27aec087a6e8c85e0a1 done
+#6 extracting sha256:f523b340a6c003e3b253f885115ab55af1d1f6a12a3fed8203adbe67173d805f done
+#6 extracting sha256:dbb1ef19121a83d4810308cc89451dd32a5fafdf8d17da3f7c3a88a3edd70573 done
+#6 extracting sha256:567a969e02211a0b0f51a1ac9b901e1bf88b7c79dbb994979df79b328fb64ab6 done
+#6 extracting sha256:c2fefbef531492feca04133b10436cc9783fce87888d03b115887db02b4f0610 done
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 0B / 20.11MB 10.5s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 1.05MB / 20.11MB 11.6s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 1.05MB / 20.11MB 16.7s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 2.10MB / 20.11MB 17.7s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 3.15MB / 20.11MB 21.9s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 3.15MB / 20.11MB 27.0s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 4.19MB / 20.11MB 28.1s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 4.19MB / 20.11MB 33.2s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 5.24MB / 20.11MB 35.7s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 5.24MB / 20.11MB 40.8s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 5.24MB / 20.11MB 45.9s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 6.29MB / 20.11MB 46.4s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 6.29MB / 20.11MB 51.5s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 7.34MB / 20.11MB 53.7s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 8.39MB / 20.11MB 58.5s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 9.44MB / 20.11MB 63.2s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 10.49MB / 20.11MB 67.2s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 11.53MB / 20.11MB 70.4s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 12.58MB / 20.11MB 73.5s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 13.63MB / 20.11MB 76.5s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 14.68MB / 20.11MB 79.1s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 15.73MB / 20.11MB 82.2s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 16.78MB / 20.11MB 86.1s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 17.83MB / 20.11MB 89.0s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 18.87MB / 20.11MB 91.4s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 19.92MB / 20.11MB 93.0s
+#6 sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 20.11MB / 20.11MB 93.6s done
+#6 extracting sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864
+#6 extracting sha256:cbe54b031f3e1a4ce4471c96573084c6454f1c5f91e03bbd51c5bb5d90af7864 0.3s done
+#6 DONE 93.9s
+
+#7 [2/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#7 DONE 0.0s
+
+#8 [3/3] COPY index.html app.js style.css /usr/share/nginx/html/
+#8 DONE 0.0s
+
+#9 exporting to image
+#9 exporting layers 0.0s done
+#9 exporting manifest sha256:b5e8868678733075eb7409be4c86ffa2eee0f90a51ecf66e256f4988b608c64b done
+#9 exporting config sha256:e4d60e1cd8f0850da2ad458f0936623b10fa817e21c7038698aa8c695ac04b38 done
+#9 exporting attestation manifest sha256:b8763c35133a3a972a137326bde918f7afe1c891da772bd0e438b5f5d35d9cc1 done
+#9 exporting manifest list sha256:2db2906139eea13a24d7178689bf1cbe811975eb78ce33d7e42da5391002d0eb done
+#9 naming to docker.io/library/devops-lab6-frontend:1.0 done
+#9 unpacking to docker.io/library/devops-lab6-frontend:1.0
+#9 unpacking to docker.io/library/devops-lab6-frontend:1.0 0.4s done
+#9 DONE 0.5s
+Lab 6 containers stopped and removed. Other projects unchanged.
+40dbaa5cbade7ff579f399dddd8491684d75137c3c4ee58ea75541b17c4a46c5
+Unable to find image 'redis:7-alpine' locally
+7-alpine: Pulling from library/redis
+bc6ec448cd22: Pulling fs layer
+4918c7f44bed: Pulling fs layer
+9c2b3e8632ac: Pulling fs layer
+7d46ac86a55c: Pulling fs layer
+278db6a31ca2: Pulling fs layer
+a033cd1240e2: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+8dba8d4391f2: Download complete
+0a5e36569ddc: Download complete
+bc6ec448cd22: Download complete
+a033cd1240e2: Download complete
+4f4fb700ef54: Download complete
+9c2b3e8632ac: Download complete
+7d46ac86a55c: Download complete
+a033cd1240e2: Pull complete
+7d46ac86a55c: Pull complete
+4918c7f44bed: Download complete
+4918c7f44bed: Pull complete
+278db6a31ca2: Download complete
+bc6ec448cd22: Pull complete
+4f4fb700ef54: Pull complete
+9c2b3e8632ac: Pull complete
+278db6a31ca2: Pull complete
+Digest: sha256:8da19c7399dca900c6822a1cf30f9d2285585e2c4b457ff4095b0f4500054d3f
+Status: Downloaded newer image for redis:7-alpine
+57955b4967d7893e6fd7eeb7e171d6b27e370e735f0436cdcf7a39cb9a508778
+0fe4838814d0b038a8656b40004455c15ccc5d9fcd0cc64e4e1d83bf3a8f53b3
+d1c7d5758e8a7e660b1137be31e6096d4c465d2fd0553fcb9bc9a10c9da2b0a4
+Frontend: http://localhost:8080
+Backend: http://localhost:5000

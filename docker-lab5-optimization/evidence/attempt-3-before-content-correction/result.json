@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "completedAtUTC": "2026-11-04T06:18:18.174Z",
+  "sizes": {
+    "metric": "docker image inspect .Size, bytes; decimal MB = bytes / 1000000",
+    "baselineBytes": 2162112862,
+    "optimizedBytes": 178781599,
+    "baselineMB": 2162.112862,
+    "optimizedMB": 178.781599,
+    "reductionFactor": 12.093598413335592,
+    "baselineArchitecture": "linux/arm64",
+    "optimizedArchitecture": "linux/arm64",
+    "baselineImageId": "sha256:c273c7c54c3c0204405628899fdb6537fb3197bbc9c4dbd9f697385f529b9164",
+    "optimizedImageId": "sha256:74f49ee7b87b43829ff2247380565296b23746cfead600ec8d4e103010e7edb3"
+  },
+  "checks": {
+    "baseline": {
+      "tag": "devops-lab5-baseline:local",
+      "identity": "uid=0(root) gid=0(root) groups=0(root)",
+      "uid": 0,
+      "runtimeArch": "arm64",
+      "originDuringVerification": "http://127.0.0.1:54198",
+      "http": "passed",
+      "staticAssets": [
+        {
+          "path": "/static/js/main.2fa563fa.js",
+          "status": 200,
+          "bytes": 150114,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "a885174de85130470e3b988062b2096a71a0b3a078b1e5fb00cbcd12984220fa"
+        },
+        {
+          "path": "/static/css/main.fa947442.css",
+          "status": 200,
+          "bytes": 7580,
+          "contentType": "text/css; charset=UTF-8",
+          "sha256": "313b64a1ef621bec69292f78a64b17eebda2134013a3f414db6c1dc699788d57"
+        }
+      ],
+      "gracefulShutdownExitCode": 0
+    },
+    "optimized": {
+      "tag": "devops-lab5-optimized:local",
+      "identity": "uid=1000(node) gid=1000(node) groups=1000(node)",
+      "uid": 1000,
+      "runtimeArch": "arm64",
+      "originDuringVerification": "http://127.0.0.1:54204",
+      "http": "passed",
+      "staticAssets": [
+        {
+          "path": "/static/js/main.2fa563fa.js",
+          "status": 200,
+          "bytes": 150114,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "a885174de85130470e3b988062b2096a71a0b3a078b1e5fb00cbcd12984220fa"
+        },
+        {
+          "path": "/static/css/main.fa947442.css",
+          "status": 200,
+          "bytes": 7580,
+          "contentType": "text/css; charset=UTF-8",
+          "sha256": "313b64a1ef621bec69292f78a64b17eebda2134013a3f414db6c1dc699788d57"
+        }
+      ],
+      "gracefulShutdownExitCode": 0
+    }
+  },
+  "cachedBuild": "CACHED steps present",
+  "sourceOnlyChange": "frontend npm ci reused; source restored",
+  "containersLeftByVerification": []
+}

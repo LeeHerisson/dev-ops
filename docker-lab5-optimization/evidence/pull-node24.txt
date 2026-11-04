@@ -1,0 +1,30 @@
+24: Pulling from library/node
+d4f3c8a27374: Pulling fs layer
+3b260f387eb1: Pulling fs layer
+13910f8954dc: Pulling fs layer
+1a9503373184: Pulling fs layer
+5a8782a51b48: Pulling fs layer
+f936106b69b9: Pulling fs layer
+7d9f3d35258f: Pulling fs layer
+9e2782a4701b: Pulling fs layer
+249c4c831042: Download complete
+d4f3c8a27374: Download complete
+0e45bc49b43c: Download complete
+13910f8954dc: Download complete
+5a8782a51b48: Download complete
+1a9503373184: Download complete
+f936106b69b9: Download complete
+9e2782a4701b: Download complete
+9e2782a4701b: Pull complete
+5a8782a51b48: Pull complete
+7d9f3d35258f: Download complete
+7d9f3d35258f: Pull complete
+3b260f387eb1: Download complete
+3b260f387eb1: Pull complete
+13910f8954dc: Pull complete
+d4f3c8a27374: Pull complete
+1a9503373184: Pull complete
+f936106b69b9: Pull complete
+Digest: sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413
+Status: Downloaded newer image for node:24
+docker.io/library/node:24

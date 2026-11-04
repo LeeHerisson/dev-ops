@@ -1,0 +1,4 @@
+$ docker image rm devops-lab5-cache-check:local
+
+Untagged: devops-lab5-cache-check:local
+Deleted: sha256:a7e336c0bc1cd24152ed1e7d796be7e2782bec3acc4692088d28f9ae77bb0c7b

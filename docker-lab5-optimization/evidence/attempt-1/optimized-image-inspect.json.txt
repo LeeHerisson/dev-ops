@@ -1,0 +1,80 @@
+$ docker image inspect devops-lab5-optimized:local
+
+[
+    {
+        "Id": "sha256:3b1740768cdce332c034b4a988dcff5e5c3ac521198715c2a30ff933a39375b3",
+        "RepoTags": [
+            "devops-lab5-optimized:local"
+        ],
+        "RepoDigests": [
+            "devops-lab5-optimized@sha256:3b1740768cdce332c034b4a988dcff5e5c3ac521198715c2a30ff933a39375b3"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-04T06:14:42.013886966Z",
+        "Config": {
+            "User": "node",
+            "ExposedPorts": {
+                "3000/tcp": {}
+            },
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=24.22.2",
+                "YARN_VERSION=1.22.22",
+                "NODE_ENV=production",
+                "PORT=3000"
+            ],
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Cmd": [
+                "node",
+                "server.js"
+            ],
+            "WorkingDir": "/app",
+            "ArgsEscaped": true,
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "node -e \"fetch('http://127.0.0.1:'+process.env.PORT+'/api/health',{signal:AbortSignal.timeout(2000)}).then(r=>{if(!r.ok)process.exit(1);return r.json()}).then(d=>{if(d.status!=='ok')process.exit(1)}).catch(()=>process.exit(1))\""
+                ],
+                "Interval": 10000000000,
+                "Timeout": 3000000000,
+                "StartPeriod": 5000000000,
+                "Retries": 3
+            }
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 247776149,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:a278e6f39431cd0ed74238a3d377893ad0d905d68b676bf9a65529080669756b",
+                "sha256:dc3778c34a7cc8094101523d1296abb0129aa9cf4fa76d7732f6e4a33a7da379",
+                "sha256:72955a156b4290e5bb386dd32c5e144568689622d2546f52ad1563a8d1afe729",
+                "sha256:9038b0bfbb28ac58f6c8b9fd21049ed584eec8a2871b4b28b2d2f88902335eb0",
+                "sha256:60e8302f91c35f83ee7f88c0c97a6fde83bb85f72cd38b07067fa7d8462ab3f5",
+                "sha256:3f2e4385bf9babc94034b746a39b9a2c45d33bfc560e3e2cabc798841f26814f",
+                "sha256:0c1ff0b3a887462a91914221c1ceeb90b290eb7effdb39a59ff9d909ed75eecc",
+                "sha256:a3368c354746709cb9173c3481a9aed69ce7825521a2034eea89e1da8512c157",
+                "sha256:cf5e14056afd20b93f4f8f600bfc0fb66544cb2752d7f860d2d36d0d782a76fe"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-04T06:14:42.186629341Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:3b1740768cdce332c034b4a988dcff5e5c3ac521198715c2a30ff933a39375b3",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "5bykxv5ufylyoswd8qo2t10wo",
+                    "CreatedAt": "2026-11-04T06:14:42.299525424Z"
+                }
+            ]
+        }
+    }
+]

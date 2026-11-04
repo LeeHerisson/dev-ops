@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "measured_at_utc": "2026-11-04T06:07:39.004Z",
+  "checks": [
+    "Three product cards loaded from the live API",
+    "UI adds two products and shows count=2, total=$40",
+    "Mobile layout has no horizontal overflow; no JavaScript page errors"
+  ],
+  "dimensions": {
+    "scroll": 390,
+    "viewport": 390
+  },
+  "page_errors": []
+}

@@ -1,0 +1,57 @@
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+
+(async () => {
+  const options = {headless:true};
+  if(process.env.CHROMIUM_EXECUTABLE) options.executablePath=process.env.CHROMIUM_EXECUTABLE;
+  const browser=await chromium.launch(options);
+  const page=await browser.newPage({viewport:{width:1440,height:1100},deviceScaleFactor:1});
+  const errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  const checks=[];
+  const folder=path.resolve(__dirname,'../evidence/screenshots');
+  fs.mkdirSync(folder,{recursive:true});
+  try{
+    await page.goto(process.env.BLOG_URL || 'http://127.0.0.1:5305',{waitUntil:'networkidle'});
+    await page.locator('.server-state.ready').waitFor();
+    const cards=page.locator('.post-grid article');
+    assert.equal(await cards.count(),3);
+    checks.push('React loaded three articles from the live Express API');
+    const search=page.getByRole('searchbox',{name:'Поиск по статьям'});
+    await search.fill('без root');
+    await page.waitForFunction(()=>document.querySelectorAll('.post-grid article').length===1);
+    assert.match(await cards.first().innerText(),/Привычка работать без root/);
+    checks.push('Text search filters the live article list');
+    await search.fill('не_существующая_статья_123');
+    await page.waitForFunction(()=>document.querySelectorAll('.post-grid article').length===0);
+    assert.match(await page.locator('.articles').innerText(),/Статей по этому запросу пока нет/);
+    await search.fill('');
+    await page.getByRole('button',{name:'Сборка',exact:true}).click();
+    assert.equal(await cards.count(),1);
+    await page.getByRole('button',{name:'Все статьи',exact:true}).click();
+    assert.equal(await cards.count(),3);
+    checks.push('Category filter and empty-search state work');
+    const articleTitle=await cards.first().locator('h3 button').innerText();
+    await cards.first().locator('h3 button').click();
+    const dialog=page.getByRole('dialog');
+    await dialog.waitFor();
+    assert.equal(await dialog.locator('h2').innerText(),articleTitle);
+    assert.match(await dialog.innerText(),/webpack/);
+    await page.screenshot({path:path.join(folder,'blog-article.png'),fullPage:false});
+    await page.getByRole('button',{name:'Закрыть статью'}).click();
+    await dialog.waitFor({state:'hidden'});
+    checks.push('Article dialog opens and closes');
+    await page.screenshot({path:path.join(folder,'blog-desktop.png'),fullPage:false});
+    await page.setViewportSize({width:390,height:844});
+    const size=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth}));
+    assert.ok(size.scrollWidth<=size.viewport,'mobile horizontal overflow');
+    await page.screenshot({path:path.join(folder,'blog-mobile.png'),fullPage:false});
+    checks.push('Mobile viewport has no horizontal overflow');
+    assert.deepEqual(errors,[]);
+    checks.push('No JavaScript page errors');
+    fs.writeFileSync(path.join(folder,'browser-check.json'),JSON.stringify({passed:true,checked_at_utc:new Date().toISOString(),checks,page_errors:errors},null,2)+'\n');
+    console.log(JSON.stringify({passed:true,checks:checks.length}));
+  }finally{await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});

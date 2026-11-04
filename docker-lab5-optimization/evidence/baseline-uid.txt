@@ -1,0 +1,3 @@
+$ docker exec devops-lab5-baseline-check-1793773322192 id -u
+
+0

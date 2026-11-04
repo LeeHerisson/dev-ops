@@ -1,0 +1,3 @@
+$ docker rm devops-lab5-optimized-check-1793773322192
+
+devops-lab5-optimized-check-1793773322192

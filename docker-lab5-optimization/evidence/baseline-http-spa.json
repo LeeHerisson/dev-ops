@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:54390/posts/1",
+  "status": 200,
+  "headers": {
+    "accept-ranges": "bytes",
+    "cache-control": "public, max-age=0",
+    "connection": "keep-alive",
+    "content-length": "686",
+    "content-type": "text/html; charset=UTF-8",
+    "date": "Wed, 04 Nov 2026 06:23:17 GMT",
+    "etag": "W/\"2ae-1a1a5399200\"",
+    "keep-alive": "timeout=5",
+    "last-modified": "Wed, 04 Nov 2026 06:22:56 GMT"
+  },
+  "body": "<!doctype html><html lang=\"ru\"><head><meta charset=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#163029\"/><meta name=\"description\" content=\"Учебный блог React и Express. Практика оптимизации Docker-образа и multi-stage сборки.\"/><title>Docker Blog — заметки о контейнерах</title><script defer=\"defer\" src=\"/static/js/main.3da4c4f2.js\"></script><link href=\"/static/css/main.fa947442.css\" rel=\"stylesheet\"></head><body><noscript>Для работы учебного React-блога включите JavaScript.</noscript><div id=\"root\"></div></body></html>"
+}

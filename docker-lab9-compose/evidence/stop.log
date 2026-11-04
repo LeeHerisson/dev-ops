@@ -1,0 +1,15 @@
+ Container devops-lab9-api Stopping 
+ Container devops-lab9-api Stopped 
+ Container devops-lab9-api Removing 
+ Container devops-lab9-api Removed 
+ Container devops-lab9-redis Stopping 
+ Container devops-lab9-db Stopping 
+ Container devops-lab9-redis Stopped 
+ Container devops-lab9-redis Removing 
+ Container devops-lab9-redis Removed 
+ Container devops-lab9-db Stopped 
+ Container devops-lab9-db Removing 
+ Container devops-lab9-db Removed 
+ Network devops-lab9-backend Removing 
+ Network devops-lab9-backend Removed 
+Only lab 9 containers/network removed. Named data volumes retained.

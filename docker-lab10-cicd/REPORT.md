@@ -39,4 +39,14 @@ Commit SHA в теге связывает имя образа с кодом по
 
 ## GitHub Actions
 
-Раздел с реальными URL и результатами удалённых запусков заполняется после выполнения workflow. Локальные логи выше не выдаются за GitHub Actions.
+Реальный отрицательный запуск: https://github.com/LeeHerisson/dev-ops/actions/runs/41783945392. На всех трёх версиях Python упал именно `test_health`: `OK` не совпало с `ok`. Сборка была пропущена. Доказательства: `evidence/github-negative-run.json` и `evidence/github-negative-job.log`.
+
+Реальный исправленный PR-запуск: https://github.com/LeeHerisson/dev-ops/actions/runs/41784111437. Все 10 тестов прошли на Python 3.11, 3.12 и 3.13; job сборки отмечена skipped согласно условию PR. Доказательство: `evidence/github-fixed-pr-run.json`.
+
+Pull request: https://github.com/LeeHerisson/dev-ops/pull/5. Запуск сборки основной ветки фиксируется после интеграции готовых лабораторных.
+
+### Скриншоты реальных удалённых запусков
+
+![Ожидаемое падение health-теста](evidence/github-red-run.png)
+
+![Исправленный PR: три Python прошли, сборка skipped](evidence/github-green-pr.png)

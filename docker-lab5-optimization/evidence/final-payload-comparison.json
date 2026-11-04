@@ -1,0 +1,7 @@
+{
+  "testedImageIdBeforeCacheReplay": "sha256:10495bc80b200335d3f1dfbd11cc66ee256ead03e34fd9b1e867a212a9111eef",
+  "finalTagImageId": "sha256:e0ec82c921016ea1585e420e43aaf5e322a3755039f7bcd7fd163c05057553cd",
+  "sameRootfsLayers": true,
+  "sameRuntimeConfiguration": true,
+  "finalSizeBytes": 178782076
+}

@@ -1,0 +1,133 @@
+Private .env created with a random password (mode 0600).
+ Image redis:7-alpine Pulling 
+ Image redis:7-alpine Pulled 
+ Image devops-lab9-api:1.0 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 679B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 655B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 3.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 90B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+#5 resolve docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 5.83kB done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [3/5] COPY requirements.txt ./
+#8 DONE 0.0s
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt     && useradd --create-home --uid 10001 appuser
+#9 2.132 Collecting Flask==3.1.3 (from -r requirements.txt (line 1))
+#9 3.215   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#9 4.304 Collecting psycopg2-binary==2.9.9 (from -r requirements.txt (line 2))
+#9 4.443   Downloading psycopg2_binary-2.9.9-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (4.4 kB)
+#9 4.706 Collecting redis==5.0.1 (from -r requirements.txt (line 3))
+#9 4.984   Downloading redis-5.0.1-py3-none-any.whl.metadata (8.9 kB)
+#9 5.206 Collecting gunicorn==23.0.0 (from -r requirements.txt (line 4))
+#9 5.360   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+#9 5.872 Collecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 5.983   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#9 6.284 Collecting click>=8.1.3 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 6.712   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 6.920 Collecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 7.239   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#9 7.518 Collecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 8.269   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#9 8.683 Collecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 8.988   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#9 9.391 Collecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 9.511   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#9 9.845 Collecting packaging (from gunicorn==23.0.0->-r requirements.txt (line 4))
+#9 9.972   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#9 10.10 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#9 10.64 Downloading psycopg2_binary-2.9.9-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.9 MB)
+#9 17.57    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 395.2 kB/s eta 0:00:00
+#9 17.79 Downloading redis-5.0.1-py3-none-any.whl (250 kB)
+#9 18.58 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+#9 19.27 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#9 19.50 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 20.01 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#9 20.52 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#9 21.04 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (24 kB)
+#9 21.43 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#9 22.45 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#9 22.68 Installing collected packages: redis, psycopg2-binary, packaging, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, gunicorn, Flask
+#9 23.22 Successfully installed Flask-3.1.3 blinker-1.9.0 click-8.5.0 gunicorn-23.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 packaging-26.3 psycopg2-binary-2.9.9 redis-5.0.1 werkzeug-3.1.9
+#9 23.22 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 24.42 
+#9 24.42 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#9 24.42 [notice] To update, run: pip install --upgrade pip
+#9 DONE 24.5s
+
+#10 [5/5] COPY --chown=appuser:appuser app.py config.py ./
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.7s done
+#11 exporting manifest sha256:ecc1556e90d392863124602791db4659ce501ce5dfa4a6f88cb5851ec57814e7 done
+#11 exporting config sha256:d6bf2ff5f5bb2b4e56b63833e663a3e4f5f187e5179c2142077d31c7b99b4e57 done
+#11 exporting attestation manifest sha256:0858c1506701cfb192dd95a7b254a7b14b8100ca214d5aa6a64e2b7448485421 done
+#11 exporting manifest list sha256:3ece5219571f0e55fc2da368e7a3d1db1a09f9e1d50ea38bf455ad82c5143768 done
+#11 naming to docker.io/library/devops-lab9-api:1.0 done
+#11 unpacking to docker.io/library/devops-lab9-api:1.0
+#11 unpacking to docker.io/library/devops-lab9-api:1.0 0.2s done
+#11 DONE 0.9s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image devops-lab9-api:1.0 Built 
+ Network devops-lab9-backend Creating 
+ Volume devops-lab9-postgres-data Creating 
+ Volume devops-lab9-postgres-data Creating 
+ Network devops-lab9-backend Creating 
+ Volume devops-lab9-redis-data Creating 
+ Volume devops-lab9-redis-data Creating 
+ Volume devops-lab9-postgres-data Created 
+ Volume devops-lab9-postgres-data Created 
+ Volume devops-lab9-redis-data Created 
+ Volume devops-lab9-redis-data Created 
+ Network devops-lab9-backend Created 
+ Network devops-lab9-backend Created 
+ Container devops-lab9-redis Creating 
+ Container devops-lab9-db Creating 
+ Container devops-lab9-db Created 
+ Container devops-lab9-redis Created 
+ Container devops-lab9-api Creating 
+ Container devops-lab9-api Created 
+ Container devops-lab9-redis Starting 
+ Container devops-lab9-db Starting 
+ Container devops-lab9-redis Started 
+ Container devops-lab9-db Started 
+ Container devops-lab9-redis Waiting 
+ Container devops-lab9-db Waiting 
+ Container devops-lab9-redis Healthy 
+ Container devops-lab9-db Healthy 
+ Container devops-lab9-api Starting 
+ Container devops-lab9-api Started 
+ Container devops-lab9-redis Waiting 
+ Container devops-lab9-api Waiting 
+ Container devops-lab9-db Waiting 
+ Container devops-lab9-db Healthy 
+ Container devops-lab9-redis Healthy 
+ Container devops-lab9-api Healthy 
+NAME                IMAGE                 COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+devops-lab9-api     devops-lab9-api:1.0   "gunicorn --bind 0.0…"   api       12 seconds ago   Up 5 seconds (healthy)    127.0.0.1:5059->5000/tcp
+devops-lab9-db      postgres:15-alpine    "docker-entrypoint.s…"   db        12 seconds ago   Up 11 seconds (healthy)   5432/tcp
+devops-lab9-redis   redis:7-alpine        "docker-entrypoint.s…"   redis     12 seconds ago   Up 11 seconds (healthy)   6379/tcp
+Lab 9 is ready. Default API: http://localhost:5059

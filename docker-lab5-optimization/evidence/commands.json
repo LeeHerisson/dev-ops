@@ -1,0 +1,543 @@
+[
+  {
+    "program": "docker",
+    "args": [
+      "version",
+      "--format",
+      "{{json .}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.025,
+    "evidence": "docker-version.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "build",
+      "--platform",
+      "linux/arm64",
+      "--progress=plain",
+      "-f",
+      "Dockerfile.baseline",
+      "-t",
+      "devops-lab5-baseline:local",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 65.582,
+    "evidence": "baseline-build.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "build",
+      "--platform",
+      "linux/arm64",
+      "--progress=plain",
+      "-f",
+      "Dockerfile",
+      "-t",
+      "devops-lab5-optimized:local",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 8.115,
+    "evidence": "optimized-build.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "run",
+      "--rm",
+      "--name",
+      "devops-lab5-tests-1793773322192",
+      "--label",
+      "devops.lab=5",
+      "devops-lab5-baseline:local",
+      "npm",
+      "test"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.44,
+    "evidence": "server-tests.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "image",
+      "inspect",
+      "devops-lab5-baseline:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.043,
+    "evidence": "baseline-image-inspect.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "history",
+      "--no-trunc",
+      "devops-lab5-baseline:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.033,
+    "evidence": "baseline-history.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "image",
+      "inspect",
+      "devops-lab5-optimized:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.029,
+    "evidence": "optimized-image-inspect.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "history",
+      "--no-trunc",
+      "devops-lab5-optimized:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.026,
+    "evidence": "optimized-history.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "run",
+      "-d",
+      "--name",
+      "devops-lab5-baseline-check-1793773322192",
+      "--label",
+      "devops.lab=5",
+      "-p",
+      "127.0.0.1::3000",
+      "devops-lab5-baseline:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.124,
+    "evidence": "baseline-run.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "port",
+      "devops-lab5-baseline-check-1793773322192",
+      "3000/tcp"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.024,
+    "evidence": "baseline-port.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-baseline-check-1793773322192",
+      "id"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.049,
+    "evidence": "baseline-identity.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-baseline-check-1793773322192",
+      "id",
+      "-u"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.045,
+    "evidence": "baseline-uid.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-baseline-check-1793773322192",
+      "node",
+      "-p",
+      "process.arch"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.059,
+    "evidence": "baseline-runtime-architecture.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-baseline-check-1793773322192",
+      "cat",
+      "/etc/os-release"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.04,
+    "evidence": "baseline-os-release.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-baseline-check-1793773322192",
+      "sh",
+      "-c",
+      "command -v make && command -v g++ && test -d /app/client/node_modules/react-scripts && echo \"frontend toolchain retained in baseline\""
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.044,
+    "evidence": "baseline-build-tools.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "logs",
+      "devops-lab5-baseline-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.021,
+    "evidence": "baseline-logs.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "stop",
+      "--timeout",
+      "15",
+      "devops-lab5-baseline-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.124,
+    "evidence": "baseline-stop.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-baseline-check-1793773322192",
+      "--format",
+      "{{json .State}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.023,
+    "evidence": "baseline-stopped-state.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "logs",
+      "devops-lab5-baseline-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.022,
+    "evidence": "baseline-shutdown-logs.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "rm",
+      "devops-lab5-baseline-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.03,
+    "evidence": "baseline-remove.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "run",
+      "-d",
+      "--name",
+      "devops-lab5-optimized-check-1793773322192",
+      "--label",
+      "devops.lab=5",
+      "-p",
+      "127.0.0.1::3000",
+      "devops-lab5-optimized:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.123,
+    "evidence": "optimized-run.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "port",
+      "devops-lab5-optimized-check-1793773322192",
+      "3000/tcp"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.023,
+    "evidence": "optimized-port.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-optimized-check-1793773322192",
+      "id"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.053,
+    "evidence": "optimized-identity.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-optimized-check-1793773322192",
+      "id",
+      "-u"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.048,
+    "evidence": "optimized-uid.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-optimized-check-1793773322192",
+      "node",
+      "-p",
+      "process.arch"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.066,
+    "evidence": "optimized-runtime-architecture.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-optimized-check-1793773322192",
+      "cat",
+      "/etc/os-release"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.04,
+    "evidence": "optimized-os-release.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "exec",
+      "devops-lab5-optimized-check-1793773322192",
+      "sh",
+      "-c",
+      "test ! -d /app/client && test ! -d /app/node_modules/react-scripts && echo \"frontend toolchain absent from runtime\""
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.041,
+    "evidence": "optimized-runtime-contents.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.02,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.047,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.033,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.028,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.026,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.03,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.031,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.03,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State.Health}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.025,
+    "evidence": "optimized-healthcheck.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "logs",
+      "devops-lab5-optimized-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.026,
+    "evidence": "optimized-logs.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "stop",
+      "--timeout",
+      "15",
+      "devops-lab5-optimized-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.135,
+    "evidence": "optimized-stop.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "inspect",
+      "devops-lab5-optimized-check-1793773322192",
+      "--format",
+      "{{json .State}}"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.021,
+    "evidence": "optimized-stopped-state.json.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "logs",
+      "devops-lab5-optimized-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.021,
+    "evidence": "optimized-shutdown-logs.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "rm",
+      "devops-lab5-optimized-check-1793773322192"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.029,
+    "evidence": "optimized-remove.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "build",
+      "--platform",
+      "linux/arm64",
+      "--progress=plain",
+      "-t",
+      "devops-lab5-optimized:local",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.06,
+    "evidence": "optimized-cached-build.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "build",
+      "--platform",
+      "linux/arm64",
+      "--progress=plain",
+      "-t",
+      "devops-lab5-cache-check:local",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 4.449,
+    "evidence": "optimized-source-change-build.txt"
+  },
+  {
+    "program": "docker",
+    "args": [
+      "image",
+      "rm",
+      "devops-lab5-cache-check:local"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.029,
+    "evidence": "cache-check-tag-remove.txt"
+  }
+]
