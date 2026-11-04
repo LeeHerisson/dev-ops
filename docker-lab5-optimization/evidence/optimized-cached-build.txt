@@ -1,0 +1,101 @@
+$ docker build --platform linux/arm64 --progress=plain -t devops-lab5-optimized:local .
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.66kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.3s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:24
+#4 ...
+
+#5 [internal] load metadata for docker.io/library/alpine:3.24
+#5 DONE 0.3s
+
+#6 [internal] load metadata for docker.io/library/node:24-alpine
+#6 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/node:24
+#4 DONE 0.4s
+
+#7 [internal] load .dockerignore
+#7 transferring context: 184B done
+#7 DONE 0.0s
+
+#8 [runtime 1/7] FROM docker.io/library/alpine:3.24@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a
+#8 resolve docker.io/library/alpine:3.24@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a 0.0s done
+#8 DONE 0.0s
+
+#9 [react-build 1/7] FROM docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413
+#9 resolve docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413 0.0s done
+#9 DONE 0.0s
+
+#10 [production-deps 1/4] FROM docker.io/library/node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85
+#10 resolve docker.io/library/node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85 0.0s done
+#10 DONE 0.0s
+
+#11 [internal] load build context
+#11 transferring context: 552B done
+#11 DONE 0.0s
+
+#12 [runtime 2/7] RUN apk add --no-cache libstdc++ ca-certificates     && addgroup -g 1000 node     && adduser -D -u 1000 -G node node
+#12 CACHED
+
+#13 [runtime 6/7] COPY --chown=node:node server/server.js server/app.js server/posts.json ./
+#13 CACHED
+
+#14 [runtime 3/7] WORKDIR /app
+#14 CACHED
+
+#15 [runtime 4/7] COPY --from=production-deps /usr/local/bin/node /usr/local/bin/node
+#15 CACHED
+
+#16 [react-build 7/7] RUN npm run build
+#16 CACHED
+
+#17 [production-deps 2/4] WORKDIR /app
+#17 CACHED
+
+#18 [production-deps 3/4] COPY server/package.json server/package-lock.json ./
+#18 CACHED
+
+#19 [production-deps 4/4] RUN npm ci --omit=dev --no-audit --no-fund     && apk add --no-cache binutils     && ls -l /usr/local/bin/node     && strip --strip-unneeded /usr/local/bin/node     && ls -l /usr/local/bin/node     && node --version
+#19 CACHED
+
+#20 [react-build 4/7] RUN npm ci --no-audit --no-fund
+#20 CACHED
+
+#21 [runtime 5/7] COPY --from=production-deps /app/node_modules ./node_modules
+#21 CACHED
+
+#22 [react-build 2/7] WORKDIR /app/client
+#22 CACHED
+
+#23 [react-build 3/7] COPY client/package.json client/package-lock.json ./
+#23 CACHED
+
+#24 [react-build 6/7] COPY client/src ./src
+#24 CACHED
+
+#25 [react-build 5/7] COPY client/public ./public
+#25 CACHED
+
+#26 [runtime 7/7] COPY --from=react-build --chown=node:node /app/client/build ./build
+#26 CACHED
+
+#27 exporting to image
+#27 exporting layers done
+#27 exporting manifest sha256:2cdd2a9da4742ccb062c80c73267a4ff11fc05b70e3c524c9d8dd5de092b3207 done
+#27 exporting config sha256:4e983c6ed94af2ea7a37c61ae34c39684c8e45de316e026ae1e90cfffa9758d5 done
+#27 exporting attestation manifest sha256:e2712f4bd464cb81f83e8ff3c01bc2a81c9bebc07a5cc17f8348e7f85e0e3c56 done
+#27 exporting manifest list sha256:e0ec82c921016ea1585e420e43aaf5e322a3755039f7bcd7fd163c05057553cd done
+#27 naming to docker.io/library/devops-lab5-optimized:local done
+#27 unpacking to docker.io/library/devops-lab5-optimized:local done
+#27 DONE 0.0s

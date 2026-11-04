@@ -1,0 +1,14 @@
+**/node_modules
+**/npm-debug.log*
+client/build
+client/dist
+**/__pycache__
+.git
+.env
+.env.*
+evidence
+screenshots
+*.md
+*.tar
+*.tar.gz
+.DS_Store

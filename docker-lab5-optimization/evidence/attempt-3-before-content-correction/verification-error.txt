@@ -1,0 +1,5 @@
+AssertionError [ERR_ASSERTION]: optimized image must be under 200 decimal MB
+    at file:///Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab5-optimization/scripts/verify.mjs:133:10
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)

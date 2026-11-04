@@ -1,0 +1,3 @@
+$ docker run -d --name devops-lab5-optimized-check-1793773322192 --label devops.lab=5 -p 127.0.0.1::3000 devops-lab5-optimized:local
+
+4a70f044bc04bed9e378309b6303860044f7f981073426cfc611c39d167410ab

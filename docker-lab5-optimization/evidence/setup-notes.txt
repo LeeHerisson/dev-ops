@@ -1,0 +1,42 @@
+Подготовка лабораторной 5, 2026-11-04.
+
+Первичная проверка:
+  node --version -> v24.18.0
+  npm --version -> 11.16.0
+  docker version --format '{{json .}}' -> Client 29.9.2 darwin/arm64, Server:null.
+  Ошибка: failed to connect to the docker API at
+  unix:///Users/herisson/.docker/run/docker.sock; ... no such file or directory.
+
+После запуска Docker Desktop основным агентом:
+  docker info --format '{{.ServerVersion}} {{.OSType}}/{{.Architecture}}'
+  -> 29.9.2 linux/aarch64.
+
+Версии проверены через npm registry:
+  npm view react@18.3.1 version -> 18.3.1
+  npm view react-scripts@5.0.1 version -> 5.0.1
+  npm view express@4 version --json -> список заканчивается 4.22.3.
+
+Создание lock-файлов:
+  npm install --prefix client --package-lock-only --ignore-scripts --no-audit --no-fund
+  -> успешно, 6 минут; лог npm-client-lock.txt.
+  npm install --prefix server --package-lock-only --ignore-scripts --no-audit --no-fund
+  -> успешно, 2 секунды; лог npm-server-lock.txt.
+  Во время разрешения CRA npm изучал разные peer-зависимости TypeScript,
+  но окончательный client/package-lock.json содержит TypeScript 4.9.5.
+  --legacy-peer-deps не использовался.
+
+Дополнительная подготовка образов:
+  docker pull --platform linux/arm64 node:24
+  docker pull --platform linux/arm64 node:24-alpine
+  Логи сохранены в pull-node24.txt и pull-node24-alpine.txt.
+
+Node syntax checks:
+  node --check server/app.js
+  node --check server/server.js
+  node --check scripts/verify.mjs
+  Все завершились успешно.
+
+Сборки и функциональные проверки выполняются scripts/verify.mjs.
+Их фактические команды, коды выхода и время — commands.json.
+Эта запись не утверждает выполнение пользовательских аккаунтов,
+Docker Hub push или CI: они не требуются для этой лабораторной.

@@ -1,0 +1,3 @@
+$ docker inspect devops-lab5-optimized-check-1793773056830 --format {{json .State.Health}}
+
+{"Status":"healthy","FailingStreak":0,"Log":[{"Start":"2026-11-04T06:18:10.247366132Z","End":"2026-11-04T06:18:10.334581715Z","ExitCode":0,"Output":""}]}

@@ -1,0 +1,53 @@
+$ docker build --platform linux/arm64 --progress=plain -f Dockerfile.baseline -t devops-lab5-baseline:local .
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.baseline
+#1 transferring dockerfile: 489B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 184B done
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413
+#4 resolve docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 3.08kB done
+#5 DONE 0.0s
+
+#6 [2/8] WORKDIR /app
+#6 CACHED
+
+#7 [7/8] RUN cp -r client/build server/build
+#7 CACHED
+
+#8 [5/8] RUN cd client && npm ci --no-audit --no-fund && npm run build
+#8 CACHED
+
+#9 [4/8] COPY server/ ./server/
+#9 CACHED
+
+#10 [6/8] RUN cd server && npm ci --no-audit --no-fund
+#10 CACHED
+
+#11 [3/8] COPY client/ ./client/
+#11 CACHED
+
+#12 [8/8] WORKDIR /app/server
+#12 CACHED
+
+#13 exporting to image
+#13 exporting layers done
+#13 exporting manifest sha256:70a5ff2d491da8a5f81b6a9d0c52f0dc8d713cca31cd0580d889153946e3b458 done
+#13 exporting config sha256:73a2ad709f9d7bd1d1ef99d48ca095a9ae4aecec12c14bc11ad8e32a21acdbee done
+#13 exporting attestation manifest sha256:e38840d874ee5c7165f9f60f54a1cc31d1057c61220bd61c75cf11fd77a84311 done
+#13 exporting manifest list sha256:26115dc0717060a300f53255f9aaab88c382c3846d64d83a87a70598156ed739 done
+#13 naming to docker.io/library/devops-lab5-baseline:local done
+#13 unpacking to docker.io/library/devops-lab5-baseline:local done
+#13 DONE 0.0s

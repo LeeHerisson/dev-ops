@@ -1,0 +1,172 @@
+$ docker build --platform linux/arm64 --progress=plain -f Dockerfile -t devops-lab5-optimized:local .
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 968B done
+#1 DONE 0.0s
+
+#2 [auth] docker/dockerfile:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 1.9s
+
+#4 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#4 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e done
+#4 CACHED
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [internal] load metadata for docker.io/library/node:24-alpine
+#6 DONE 1.3s
+
+#7 [internal] load metadata for docker.io/library/node:24
+#7 DONE 1.3s
+
+#8 [internal] load .dockerignore
+#8 transferring context: 184B done
+#8 DONE 0.0s
+
+#9 [react-build 1/7] FROM docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413
+#9 resolve docker.io/library/node:24@sha256:e7add2a490bb17d97b485b8641bd88455fff7839ade0f5eba493c3508124d413 done
+#9 CACHED
+
+#10 [internal] load build context
+#10 transferring context: 552B done
+#10 DONE 0.0s
+
+#11 [react-build 2/7] WORKDIR /app/client
+#11 DONE 0.0s
+
+#12 [react-build 3/7] COPY client/package.json client/package-lock.json ./
+#12 DONE 0.0s
+
+#13 [runtime 1/6] FROM docker.io/library/node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85
+#13 resolve docker.io/library/node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85 done
+#13 extracting sha256:c383c714f1c9fc537320667d68c1b161f6f2c1c7caaa579f559cceff4dca78ba
+#13 extracting sha256:c383c714f1c9fc537320667d68c1b161f6f2c1c7caaa579f559cceff4dca78ba 0.8s done
+#13 DONE 0.8s
+
+#14 [react-build 4/7] RUN npm ci --no-audit --no-fund
+#14 ...
+
+#13 [runtime 1/6] FROM docker.io/library/node:24-alpine@sha256:8a32c8cf649a49915a66e81e7a609223c708d0adabf288ee3f4077d765542f85
+#13 extracting sha256:8b117b2ff48b641c77438ab5fb4c3d4747623c24443762acd78ab4b36fc1eeaf 0.0s done
+#13 extracting sha256:011b25af9911da1dfc23adf2e61797cb9e2ab57b39866a4bba70bf8ddf0180cb done
+#13 DONE 0.9s
+
+#15 [runtime 2/6] WORKDIR /app
+#15 DONE 0.1s
+
+#16 [runtime 3/6] COPY server/package.json server/package-lock.json ./
+#16 DONE 0.0s
+
+#17 [runtime 4/6] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#17 2.167 
+#17 2.167 added 68 packages in 2s
+#17 2.168 npm notice
+#17 2.168 npm notice New major version of npm available! 11.19.1 -> 12.2.1
+#17 2.168 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+#17 2.168 npm notice To update run: npm install -g npm@12.2.1
+#17 2.168 npm notice
+#17 2.260 npm warn using --force Recommended protections disabled.
+#17 DONE 2.4s
+
+#14 [react-build 4/7] RUN npm ci --no-audit --no-fund
+#14 3.297 npm warn deprecated workbox-google-analytics@6.6.0: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+#14 3.646 npm warn deprecated whatwg-encoding@1.0.5: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#14 ...
+
+#18 [runtime 5/6] COPY --chown=node:node server/server.js server/app.js server/posts.json ./
+#18 DONE 0.3s
+
+#14 [react-build 4/7] RUN npm ci --no-audit --no-fund
+#14 3.655 npm warn deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+#14 3.670 npm warn deprecated workbox-cacheable-response@6.6.0: workbox-background-sync@6.6.0
+#14 3.706 npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+#14 4.856 npm warn deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+#14 5.219 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+#14 5.582 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+#14 6.295 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#14 6.297 npm warn deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+#14 8.322 npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+#14 8.322 npm warn deprecated
+#14 8.322 npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+#14 13.80 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#14 14.48 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#14 17.29 npm warn deprecated domexception@2.0.1: Use your platform's native DOMException instead
+#14 18.01 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#14 20.05 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#14 21.85 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+#14 22.01 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+#14 24.06 npm warn deprecated @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+#14 24.06 npm warn deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+#14 24.29 npm warn deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+#14 24.29 npm warn deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+#14 24.38 npm warn deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+#14 29.76 npm warn deprecated @babel/plugin-proposal-private-property-in-object@7.21.11: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
+#14 33.42 
+#14 33.42 added 1289 packages in 33s
+#14 33.42 npm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:
+#14 33.42 npm warn install-scripts   core-js@3.51.0 (postinstall: node -e "try{require('./postinstall')}catch(e){}")
+#14 33.42 npm warn install-scripts   core-js-pure@3.51.0 (postinstall: node -e "try{require('./postinstall')}catch(e){}")
+#14 33.42 npm warn install-scripts
+#14 33.42 npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+#14 33.42 npm notice
+#14 33.42 npm notice New major version of npm available! 11.19.1 -> 12.2.1
+#14 33.42 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+#14 33.42 npm notice To update run: npm install -g npm@12.2.1
+#14 33.42 npm notice
+#14 DONE 33.8s
+
+#19 [react-build 5/7] COPY client/public ./public
+#19 DONE 0.2s
+
+#20 [react-build 6/7] COPY client/src ./src
+#20 DONE 0.0s
+
+#21 [react-build 7/7] RUN npm run build
+#21 0.136 
+#21 0.136 > devops-lab5-blog-client@1.0.0 build
+#21 0.136 > react-scripts build
+#21 0.136 
+#21 0.620 (node:26) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+#21 0.620 (Use `node --trace-deprecation ...` to show where the warning was created)
+#21 0.622 Creating an optimized production build...
+#21 2.887 Compiled successfully.
+#21 2.887 
+#21 2.887 File sizes after gzip:
+#21 2.887 
+#21 2.892   47.7 kB  build/static/js/main.2fa563fa.js
+#21 2.892   2.49 kB  build/static/css/main.fa947442.css
+#21 2.892 
+#21 2.893 The project was built assuming it is hosted at /.
+#21 2.893 You can control this with the homepage field in your package.json.
+#21 2.893 
+#21 2.893 The build folder is ready to be deployed.
+#21 2.893 You may serve it with a static server:
+#21 2.893 
+#21 2.893   npm install -g serve
+#21 2.893   serve -s build
+#21 2.893 
+#21 2.893 Find out more about deployment here:
+#21 2.893 
+#21 2.893   https://cra.link/deployment
+#21 2.893 
+#21 DONE 2.9s
+
+#22 [runtime 6/6] COPY --from=react-build --chown=node:node /app/client/build ./build
+#22 DONE 0.0s
+
+#23 exporting to image
+#23 exporting layers
+#23 exporting layers 0.2s done
+#23 exporting manifest sha256:2c7ec82388fe388c015e9b9363b3017d380be104ee01818e58483cbf6b5a9367 done
+#23 exporting config sha256:2e51e30576d653e9146998600f3b866572cc0f28d1f8c5a23280fb2fa6d1e058 done
+#23 exporting attestation manifest sha256:1a917320d99b53c381cd5d7ca5a86875b3a475f5c2f8b592f7652b9b6c825018 done
+#23 exporting manifest list sha256:3b1740768cdce332c034b4a988dcff5e5c3ac521198715c2a30ff933a39375b3 done
+#23 naming to docker.io/library/devops-lab5-optimized:local done
+#23 unpacking to docker.io/library/devops-lab5-optimized:local 0.1s done
+#23 DONE 0.3s

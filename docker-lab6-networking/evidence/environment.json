@@ -1,0 +1,87 @@
+{
+  "measured_at_utc": "2026-11-04T06:06:25.864253+00:00",
+  "docker_context": "desktop-linux",
+  "server_version": "29.9.2",
+  "server_os": "linux",
+  "server_architecture": "arm64",
+  "images": [
+    {
+      "Id": "sha256:1be8ee3be131718cb88c6524486b0a3c5391ddb57ff4fddcaa859fc4a7eb97ea",
+      "RepoTags": [
+        "devops-lab6-backend:1.0"
+      ],
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 229270799
+    },
+    {
+      "Id": "sha256:2db2906139eea13a24d7178689bf1cbe811975eb78ce33d7e42da5391002d0eb",
+      "RepoTags": [
+        "devops-lab6-frontend:1.0"
+      ],
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 93244832
+    },
+    {
+      "Id": "sha256:8da19c7399dca900c6822a1cf30f9d2285585e2c4b457ff4095b0f4500054d3f",
+      "RepoTags": [
+        "redis:7-alpine"
+      ],
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 58214993
+    }
+  ],
+  "containers": [
+    {
+      "name": "/devops-lab6-frontend",
+      "id": "d1c7d5758e8a7e660b1137be31e6096d4c465d2fd0553fcb9bc9a10c9da2b0a4",
+      "health": "healthy",
+      "running": true,
+      "user": "",
+      "ports": {
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "networks": [
+        "devops-lab6-network"
+      ]
+    },
+    {
+      "name": "/devops-lab6-backend",
+      "id": "0fe4838814d0b038a8656b40004455c15ccc5d9fcd0cc64e4e1d83bf3a8f53b3",
+      "health": "healthy",
+      "running": true,
+      "user": "appuser",
+      "ports": {
+        "5000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "5000"
+          }
+        ]
+      },
+      "networks": [
+        "devops-lab6-network"
+      ]
+    },
+    {
+      "name": "/devops-lab6-redis",
+      "id": "57955b4967d7893e6fd7eeb7e171d6b27e370e735f0436cdcf7a39cb9a508778",
+      "health": "healthy",
+      "running": true,
+      "user": "",
+      "ports": {
+        "6379/tcp": null
+      },
+      "networks": [
+        "devops-lab6-network"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "measured_at_utc": "2026-11-04T06:11:47.414530+00:00",
+  "containers_remaining": {
+    "devops-lab6-frontend": false,
+    "devops-lab6-backend": false,
+    "devops-lab6-redis": false
+  },
+  "network_remaining": false,
+  "data_volumes_retained": {},
+  "global_prune_used": false
+}

@@ -1,0 +1,712 @@
+{
+  "lab": 9,
+  "source_lab": "Docker Compose PDF ЛР5 pages22–29",
+  "measured_at_utc": "2026-11-04T06:07:06.599385+00:00",
+  "base_url": "http://127.0.0.1:5059",
+  "configuration_without_password": {
+    "DB_USER": "lab9user",
+    "DB_NAME": "lab9db",
+    "API_PORT": "5059",
+    "CACHE_TTL_SECONDS": "60"
+  },
+  "checks": [
+    {
+      "name": "GET /",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "body": {
+          "app": "DevOps Lab 9 API",
+          "cache_ttl_seconds": 60,
+          "source_lab": "Docker Compose ЛР5",
+          "status": "running"
+        }
+      }
+    },
+    {
+      "name": "GET /health",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "body": {
+          "scope": "http-process",
+          "status": "healthy"
+        }
+      }
+    },
+    {
+      "name": "GET /db-test",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "body": {
+          "database": "PostgreSQL 15.19 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+          "status": "success"
+        }
+      }
+    },
+    {
+      "name": "GET /cache-test",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "body": {
+          "redis": "connected",
+          "status": "success",
+          "test_value": "test_value"
+        }
+      }
+    },
+    {
+      "name": "POST /users saves in PostgreSQL",
+      "passed": true,
+      "evidence": {
+        "status": 201,
+        "body": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        }
+      }
+    },
+    {
+      "name": "GET /users includes new record",
+      "passed": true,
+      "evidence": {
+        "count": 1,
+        "created": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        }
+      }
+    },
+    {
+      "name": "Cache miss reads PostgreSQL",
+      "passed": true,
+      "evidence": {
+        "source": "database",
+        "user": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        }
+      }
+    },
+    {
+      "name": "Second GET reads Redis copy",
+      "passed": true,
+      "evidence": {
+        "source": "cache",
+        "user": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        }
+      }
+    },
+    {
+      "name": "Cached copy has bounded positive TTL",
+      "passed": true,
+      "evidence": {
+        "ttl_seconds": 60
+      }
+    },
+    {
+      "name": "Duplicate email returns 409",
+      "passed": true,
+      "evidence": {
+        "error": "email already exists"
+      }
+    },
+    {
+      "name": "Invalid POST missing fields returns 400",
+      "passed": true,
+      "evidence": {
+        "error": "name and email must be strings"
+      }
+    },
+    {
+      "name": "Invalid POST array returns 400",
+      "passed": true,
+      "evidence": {
+        "error": "JSON object required"
+      }
+    },
+    {
+      "name": "Invalid POST wrong types returns 400",
+      "passed": true,
+      "evidence": {
+        "error": "name and email must be strings"
+      }
+    },
+    {
+      "name": "Invalid POST empty name returns 400",
+      "passed": true,
+      "evidence": {
+        "error": "invalid name or email"
+      }
+    },
+    {
+      "name": "Invalid POST invalid email returns 400",
+      "passed": true,
+      "evidence": {
+        "error": "invalid name or email"
+      }
+    },
+    {
+      "name": "Missing user returns 404",
+      "passed": true,
+      "evidence": {
+        "error": "user not found"
+      }
+    },
+    {
+      "name": "Unknown route returns JSON 404",
+      "passed": true,
+      "evidence": {
+        "error": "route not found"
+      }
+    },
+    {
+      "name": "Unsupported method returns JSON 405",
+      "passed": true,
+      "evidence": {
+        "error": "method not allowed"
+      }
+    },
+    {
+      "name": "Expired copy is read again from database",
+      "passed": true,
+      "evidence": {
+        "source": "database",
+        "user": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        }
+      }
+    },
+    {
+      "name": "API resolves DB and Redis by service names",
+      "passed": true,
+      "evidence": {
+        "db": "172.19.0.3",
+        "redis": "172.19.0.2"
+      }
+    },
+    {
+      "name": "Cache health is 503 during Redis outage",
+      "passed": true,
+      "evidence": {
+        "error": "cache unavailable"
+      }
+    },
+    {
+      "name": "User read falls back to DB while Redis is stopped",
+      "passed": true,
+      "evidence": {
+        "source": "database",
+        "user": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        }
+      }
+    },
+    {
+      "name": "DB check is 503 during PostgreSQL outage",
+      "passed": true,
+      "evidence": {
+        "error": "database unavailable"
+      }
+    },
+    {
+      "name": "Liveness remains HTTP-process liveness",
+      "passed": true,
+      "evidence": {
+        "scope": "http-process",
+        "status": "healthy"
+      }
+    },
+    {
+      "name": "All three containers healthy before recreation",
+      "passed": true,
+      "evidence": {
+        "devops-lab9-api": {
+          "id": "4588a2c5d941908efdfa88ea43d113265e217568392abbb437598f94544ab018",
+          "image": "sha256:3ece5219571f0e55fc2da368e7a3d1db1a09f9e1d50ea38bf455ad82c5143768",
+          "status": "running",
+          "health": "healthy",
+          "mounts": [],
+          "networks": [
+            "devops-lab9-backend"
+          ]
+        },
+        "devops-lab9-db": {
+          "id": "a6077db7ac9809bf7bab036f94abd14d7e6f394be83b831e4355528a7b497a83",
+          "image": "sha256:54e0dd8e8cddcdbb9156c2486eed5a43eccb7214d7c6828097d41ce049fb3984",
+          "status": "running",
+          "health": "healthy",
+          "mounts": [
+            {
+              "Type": "bind",
+              "Destination": "/docker-entrypoint-initdb.d/001-users.sql"
+            },
+            {
+              "Type": "volume",
+              "Name": "devops-lab9-postgres-data",
+              "Destination": "/var/lib/postgresql/data"
+            }
+          ],
+          "networks": [
+            "devops-lab9-backend"
+          ]
+        },
+        "devops-lab9-redis": {
+          "id": "56a3d9ade964c3cc90a515b45e791833c72b741e70171ec69a74d567ed7f93c4",
+          "image": "sha256:8da19c7399dca900c6822a1cf30f9d2285585e2c4b457ff4095b0f4500054d3f",
+          "status": "running",
+          "health": "healthy",
+          "mounts": [
+            {
+              "Type": "volume",
+              "Name": "devops-lab9-redis-data",
+              "Destination": "/data"
+            }
+          ],
+          "networks": [
+            "devops-lab9-backend"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Containers really replaced, not merely restarted",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "devops-lab9-api": "4588a2c5d941908efdfa88ea43d113265e217568392abbb437598f94544ab018",
+          "devops-lab9-db": "a6077db7ac9809bf7bab036f94abd14d7e6f394be83b831e4355528a7b497a83",
+          "devops-lab9-redis": "56a3d9ade964c3cc90a515b45e791833c72b741e70171ec69a74d567ed7f93c4"
+        },
+        "after": {
+          "devops-lab9-api": "c4600ae91b96f2716e7e64a769a94d2382025d28a1c4b7d91583c2316430a8d3",
+          "devops-lab9-db": "240084d1cbd5bf194d32c29b146675df686d3cf82fdf1ce195c1a51c4fadbd95",
+          "devops-lab9-redis": "ba6f0f7c3882d13a6a3866be70d3eba3be52f9c905fa511a929ffb53597f95ea"
+        }
+      }
+    },
+    {
+      "name": "Named volumes unchanged across down/up",
+      "passed": true,
+      "evidence": {
+        "devops-lab9-api": [],
+        "devops-lab9-db": [
+          {
+            "Type": "bind",
+            "Destination": "/docker-entrypoint-initdb.d/001-users.sql"
+          },
+          {
+            "Type": "volume",
+            "Name": "devops-lab9-postgres-data",
+            "Destination": "/var/lib/postgresql/data"
+          }
+        ],
+        "devops-lab9-redis": [
+          {
+            "Type": "volume",
+            "Name": "devops-lab9-redis-data",
+            "Destination": "/data"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PostgreSQL record survives new containers",
+      "passed": true,
+      "evidence": {
+        "created_record": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        },
+        "count_after": 1
+      }
+    },
+    {
+      "name": "Redis AOF marker survives new Redis container",
+      "passed": true,
+      "evidence": {
+        "key": "devops:lab9:persistence:436b61eeb478",
+        "value": "436b61eeb478"
+      }
+    },
+    {
+      "name": "Redis AOF enabled",
+      "passed": true,
+      "evidence": "appendonly\nyes"
+    },
+    {
+      "name": "API works after full recreation",
+      "passed": true,
+      "evidence": {
+        "source": "cache",
+        "user": {
+          "email": "alice-436b61eeb478@example.com",
+          "id": 1,
+          "name": "Alice persistence 436b61eeb478"
+        }
+      }
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "exec",
+        "-T",
+        "redis",
+        "redis-cli",
+        "TTL",
+        "devops:lab9:user:1"
+      ],
+      "exit_code": 0,
+      "stdout": "60",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "exec",
+        "-T",
+        "redis",
+        "redis-cli",
+        "EXPIRE",
+        "devops:lab9:user:1",
+        "1"
+      ],
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "exec",
+        "-T",
+        "api",
+        "python",
+        "-c",
+        "import json,socket;print(json.dumps({n:socket.gethostbyname(n) for n in ['db','redis']}))"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"db\": \"172.19.0.3\", \"redis\": \"172.19.0.2\"}",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "stop",
+        "redis"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Container devops-lab9-redis Stopping \n Container devops-lab9-redis Stopped"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "up",
+        "-d",
+        "--wait",
+        "--wait-timeout",
+        "60",
+        "redis"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Container devops-lab9-redis Starting \n Container devops-lab9-redis Started \n Container devops-lab9-redis Waiting \n Container devops-lab9-redis Healthy"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "stop",
+        "db"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Container devops-lab9-db Stopping \n Container devops-lab9-db Stopped"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "up",
+        "-d",
+        "--wait",
+        "--wait-timeout",
+        "60",
+        "db"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Container devops-lab9-db Starting \n Container devops-lab9-db Started \n Container devops-lab9-db Waiting \n Container devops-lab9-db Healthy"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "exec",
+        "-T",
+        "redis",
+        "redis-cli",
+        "SET",
+        "devops:lab9:persistence:436b61eeb478",
+        "436b61eeb478"
+      ],
+      "exit_code": 0,
+      "stdout": "OK",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "devops-lab9-api",
+        "devops-lab9-db",
+        "devops-lab9-redis"
+      ],
+      "exit_code": 0,
+      "stdout": "[raw inspect filtered; no environment values stored]",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "down"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Container devops-lab9-api Stopping \n Container devops-lab9-api Stopped \n Container devops-lab9-api Removing \n Container devops-lab9-api Removed \n Container devops-lab9-db Stopping \n Container devops-lab9-redis Stopping \n Container devops-lab9-db Stopped \n Container devops-lab9-db Removing \n Container devops-lab9-db Removed \n Container devops-lab9-redis Stopped \n Container devops-lab9-redis Removing \n Container devops-lab9-redis Removed \n Network devops-lab9-backend Removing \n Network devops-lab9-backend Removed"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "up",
+        "-d",
+        "--wait",
+        "--wait-timeout",
+        "120"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Network devops-lab9-backend Creating \n Network devops-lab9-backend Creating \n Network devops-lab9-backend Created \n Network devops-lab9-backend Created \n Container devops-lab9-redis Creating \n Container devops-lab9-db Creating \n Container devops-lab9-redis Created \n Container devops-lab9-db Created \n Container devops-lab9-api Creating \n Container devops-lab9-api Created \n Container devops-lab9-db Starting \n Container devops-lab9-redis Starting \n Container devops-lab9-db Started \n Container devops-lab9-redis Started \n Container devops-lab9-db Waiting \n Container devops-lab9-redis Waiting \n Container devops-lab9-redis Healthy \n Container devops-lab9-db Healthy \n Container devops-lab9-api Starting \n Container devops-lab9-api Started \n Container devops-lab9-redis Waiting \n Container devops-lab9-api Waiting \n Container devops-lab9-db Waiting \n Container devops-lab9-db Healthy \n Container devops-lab9-redis Healthy \n Container devops-lab9-api Healthy"
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "devops-lab9-api",
+        "devops-lab9-db",
+        "devops-lab9-redis"
+      ],
+      "exit_code": 0,
+      "stdout": "[raw inspect filtered; no environment values stored]",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "exec",
+        "-T",
+        "redis",
+        "redis-cli",
+        "GET",
+        "devops:lab9:persistence:436b61eeb478"
+      ],
+      "exit_code": 0,
+      "stdout": "436b61eeb478",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--project-directory",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose",
+        "-f",
+        "/Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab9-compose/compose.yaml",
+        "exec",
+        "-T",
+        "redis",
+        "redis-cli",
+        "CONFIG",
+        "GET",
+        "appendonly"
+      ],
+      "exit_code": 0,
+      "stdout": "appendonly\nyes",
+      "stderr": ""
+    }
+  ],
+  "user": {
+    "email": "alice-436b61eeb478@example.com",
+    "id": 1,
+    "name": "Alice persistence 436b61eeb478"
+  },
+  "before_recreation": {
+    "devops-lab9-api": {
+      "id": "4588a2c5d941908efdfa88ea43d113265e217568392abbb437598f94544ab018",
+      "image": "sha256:3ece5219571f0e55fc2da368e7a3d1db1a09f9e1d50ea38bf455ad82c5143768",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [],
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    },
+    "devops-lab9-db": {
+      "id": "a6077db7ac9809bf7bab036f94abd14d7e6f394be83b831e4355528a7b497a83",
+      "image": "sha256:54e0dd8e8cddcdbb9156c2486eed5a43eccb7214d7c6828097d41ce049fb3984",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Destination": "/docker-entrypoint-initdb.d/001-users.sql"
+        },
+        {
+          "Type": "volume",
+          "Name": "devops-lab9-postgres-data",
+          "Destination": "/var/lib/postgresql/data"
+        }
+      ],
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    },
+    "devops-lab9-redis": {
+      "id": "56a3d9ade964c3cc90a515b45e791833c72b741e70171ec69a74d567ed7f93c4",
+      "image": "sha256:8da19c7399dca900c6822a1cf30f9d2285585e2c4b457ff4095b0f4500054d3f",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "devops-lab9-redis-data",
+          "Destination": "/data"
+        }
+      ],
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    }
+  },
+  "after_recreation": {
+    "devops-lab9-api": {
+      "id": "c4600ae91b96f2716e7e64a769a94d2382025d28a1c4b7d91583c2316430a8d3",
+      "image": "sha256:3ece5219571f0e55fc2da368e7a3d1db1a09f9e1d50ea38bf455ad82c5143768",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [],
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    },
+    "devops-lab9-db": {
+      "id": "240084d1cbd5bf194d32c29b146675df686d3cf82fdf1ce195c1a51c4fadbd95",
+      "image": "sha256:54e0dd8e8cddcdbb9156c2486eed5a43eccb7214d7c6828097d41ce049fb3984",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Destination": "/docker-entrypoint-initdb.d/001-users.sql"
+        },
+        {
+          "Type": "volume",
+          "Name": "devops-lab9-postgres-data",
+          "Destination": "/var/lib/postgresql/data"
+        }
+      ],
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    },
+    "devops-lab9-redis": {
+      "id": "ba6f0f7c3882d13a6a3866be70d3eba3be52f9c905fa511a929ffb53597f95ea",
+      "image": "sha256:8da19c7399dca900c6822a1cf30f9d2285585e2c4b457ff4095b0f4500054d3f",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "devops-lab9-redis-data",
+          "Destination": "/data"
+        }
+      ],
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    }
+  },
+  "dns": {
+    "db": "172.19.0.3",
+    "redis": "172.19.0.2"
+  },
+  "passed": true
+}

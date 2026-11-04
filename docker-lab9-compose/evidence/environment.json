@@ -1,0 +1,108 @@
+{
+  "measured_at_utc": "2026-11-04T06:08:57.471877+00:00",
+  "docker_context": "desktop-linux",
+  "server_version": "29.9.2",
+  "server_os": "linux",
+  "server_architecture": "arm64",
+  "compose_version": "5.6.1",
+  "env_mode": "0o600",
+  "images": [
+    {
+      "Id": "sha256:3ece5219571f0e55fc2da368e7a3d1db1a09f9e1d50ea38bf455ad82c5143768",
+      "RepoTags": [
+        "devops-lab9-api:1.0"
+      ],
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 241454924
+    },
+    {
+      "Id": "sha256:54e0dd8e8cddcdbb9156c2486eed5a43eccb7214d7c6828097d41ce049fb3984",
+      "RepoTags": [
+        "postgres:15-alpine"
+      ],
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 407768179
+    },
+    {
+      "Id": "sha256:8da19c7399dca900c6822a1cf30f9d2285585e2c4b457ff4095b0f4500054d3f",
+      "RepoTags": [
+        "redis:7-alpine"
+      ],
+      "Architecture": "arm64",
+      "Os": "linux",
+      "Size": 58214993
+    }
+  ],
+  "containers": [
+    {
+      "name": "/devops-lab9-api",
+      "id": "c4600ae91b96f2716e7e64a769a94d2382025d28a1c4b7d91583c2316430a8d3",
+      "health": "healthy",
+      "running": true,
+      "user": "appuser",
+      "ports": {
+        "5000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "5059"
+          }
+        ]
+      },
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    },
+    {
+      "name": "/devops-lab9-db",
+      "id": "240084d1cbd5bf194d32c29b146675df686d3cf82fdf1ce195c1a51c4fadbd95",
+      "health": "healthy",
+      "running": true,
+      "user": "",
+      "ports": {
+        "5432/tcp": null
+      },
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    },
+    {
+      "name": "/devops-lab9-redis",
+      "id": "ba6f0f7c3882d13a6a3866be70d3eba3be52f9c905fa511a929ffb53597f95ea",
+      "health": "healthy",
+      "running": true,
+      "user": "",
+      "ports": {
+        "6379/tcp": null
+      },
+      "networks": [
+        "devops-lab9-backend"
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "Name": "devops-lab9-postgres-data",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "bf3302655cb93b1de1ada81b9d36c29bd94867b017d870153c107faf673a3b64",
+        "com.docker.compose.project": "devops-lab9",
+        "com.docker.compose.version": "5.6.1",
+        "com.docker.compose.volume": "postgres_data",
+        "devops.lab": "9"
+      }
+    },
+    {
+      "Name": "devops-lab9-redis-data",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "384ec5d100b4d20d2d56dea90a47e9175214a05b25be04faf7317391212ce977",
+        "com.docker.compose.project": "devops-lab9",
+        "com.docker.compose.version": "5.6.1",
+        "com.docker.compose.volume": "redis_data",
+        "devops.lab": "9"
+      }
+    }
+  ]
+}

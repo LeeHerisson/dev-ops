@@ -1,0 +1,16 @@
+[
+  {
+    "path": "/static/js/main.3da4c4f2.js",
+    "status": 200,
+    "bytes": 150373,
+    "contentType": "application/javascript; charset=UTF-8",
+    "sha256": "a257e1b941c4c55a75006d41af006797457000cdcce57448788f48bd5f17dd43"
+  },
+  {
+    "path": "/static/css/main.fa947442.css",
+    "status": 200,
+    "bytes": 7580,
+    "contentType": "text/css; charset=UTF-8",
+    "sha256": "313b64a1ef621bec69292f78a64b17eebda2134013a3f414db6c1dc699788d57"
+  }
+]

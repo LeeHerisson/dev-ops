@@ -1,0 +1,236 @@
+{
+  "lab": 6,
+  "source_lab": "Docker Advanced ЛР2, Week4 PDF pages15–19",
+  "measured_at_utc": "2026-11-04T06:05:49.987563+00:00",
+  "frontend": "http://127.0.0.1:8080",
+  "backend": "http://127.0.0.1:5000",
+  "checks": [
+    {
+      "name": "Nginx same-origin proxy returns 3 products",
+      "passed": true,
+      "evidence": [
+        {
+          "id": 1,
+          "name": "Docker T-Shirt",
+          "price": 25
+        },
+        {
+          "id": 2,
+          "name": "Kubernetes Mug",
+          "price": 15
+        },
+        {
+          "id": 3,
+          "name": "DevOps Book",
+          "price": 40
+        }
+      ]
+    },
+    {
+      "name": "Source prices are 25, 15, 40",
+      "passed": true,
+      "evidence": [
+        {
+          "id": 1,
+          "name": "Docker T-Shirt",
+          "price": 25
+        },
+        {
+          "id": 2,
+          "name": "Kubernetes Mug",
+          "price": 15
+        },
+        {
+          "id": 3,
+          "name": "DevOps Book",
+          "price": 40
+        }
+      ]
+    },
+    {
+      "name": "Backend published on its own port",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "products": [
+          {
+            "id": 1,
+            "name": "Docker T-Shirt",
+            "price": 25
+          },
+          {
+            "id": 2,
+            "name": "Kubernetes Mug",
+            "price": 15
+          },
+          {
+            "id": 3,
+            "name": "DevOps Book",
+            "price": 40
+          }
+        ]
+      }
+    },
+    {
+      "name": "Flask reaches Redis by DNS alias",
+      "passed": true,
+      "evidence": {
+        "redis": true,
+        "status": "ok"
+      }
+    },
+    {
+      "name": "Reset empties dedicated demonstration cart",
+      "passed": true,
+      "evidence": {
+        "count": 0,
+        "items": [],
+        "total": 0
+      }
+    },
+    {
+      "name": "POST adds product 1",
+      "passed": true,
+      "evidence": {
+        "product": {
+          "id": 1,
+          "name": "Docker T-Shirt",
+          "price": 25
+        },
+        "success": true
+      }
+    },
+    {
+      "name": "POST adds product 2",
+      "passed": true,
+      "evidence": {
+        "product": {
+          "id": 2,
+          "name": "Kubernetes Mug",
+          "price": 15
+        },
+        "success": true
+      }
+    },
+    {
+      "name": "Backend and Nginx share cart, two products total 40",
+      "passed": true,
+      "evidence": {
+        "count": 2,
+        "items": [
+          {
+            "id": 1,
+            "name": "Docker T-Shirt",
+            "price": 25
+          },
+          {
+            "id": 2,
+            "name": "Kubernetes Mug",
+            "price": 15
+          }
+        ],
+        "total": 40
+      }
+    },
+    {
+      "name": "Unknown product returns 404",
+      "passed": true,
+      "evidence": {
+        "error": "product not found"
+      }
+    },
+    {
+      "name": "Invalid product leaves cart unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 2,
+        "items": [
+          {
+            "id": 1,
+            "name": "Docker T-Shirt",
+            "price": 25
+          },
+          {
+            "id": 2,
+            "name": "Kubernetes Mug",
+            "price": 15
+          }
+        ],
+        "total": 40
+      }
+    },
+    {
+      "name": "Three products total 80",
+      "passed": true,
+      "evidence": {
+        "count": 3,
+        "items": [
+          {
+            "id": 1,
+            "name": "Docker T-Shirt",
+            "price": 25
+          },
+          {
+            "id": 2,
+            "name": "Kubernetes Mug",
+            "price": 15
+          },
+          {
+            "id": 3,
+            "name": "DevOps Book",
+            "price": 40
+          }
+        ],
+        "total": 80
+      }
+    },
+    {
+      "name": "Unknown API route returns JSON 404",
+      "passed": true,
+      "evidence": {
+        "error": "route not found"
+      }
+    },
+    {
+      "name": "All aliases resolve in user-defined bridge",
+      "passed": true,
+      "evidence": {
+        "redis": "172.18.0.2",
+        "backend": "172.18.0.3",
+        "frontend": "172.18.0.4"
+      }
+    },
+    {
+      "name": "Exactly the required three containers are in bridge",
+      "passed": true,
+      "evidence": [
+        "devops-lab6-backend",
+        "devops-lab6-frontend",
+        "devops-lab6-redis"
+      ]
+    },
+    {
+      "name": "UI and script are served; API URL is relative",
+      "passed": true,
+      "evidence": {
+        "title": "Docker Shop",
+        "api": "/api"
+      }
+    }
+  ],
+  "dns": {
+    "redis": "172.18.0.2",
+    "backend": "172.18.0.3",
+    "frontend": "172.18.0.4"
+  },
+  "network": {
+    "name": "devops-lab6-network",
+    "driver": "bridge",
+    "containers": [
+      "devops-lab6-backend",
+      "devops-lab6-frontend",
+      "devops-lab6-redis"
+    ]
+  },
+  "passed": true
+}

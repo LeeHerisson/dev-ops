@@ -1,0 +1,14 @@
+{
+  "measured_at_utc": "2026-11-04T06:11:47.509077+00:00",
+  "containers_remaining": {
+    "devops-lab9-api": false,
+    "devops-lab9-db": false,
+    "devops-lab9-redis": false
+  },
+  "network_remaining": false,
+  "data_volumes_retained": {
+    "devops-lab9-postgres-data": true,
+    "devops-lab9-redis-data": true
+  },
+  "global_prune_used": false
+}

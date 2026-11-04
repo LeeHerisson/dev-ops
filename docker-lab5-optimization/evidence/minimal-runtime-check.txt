@@ -1,0 +1,7 @@
+v24.22.2
+uid=1000(node) gid=1000(node) groups=1000(node)
+	/lib/ld-musl-aarch64.so.1 (0xffff9e810000)
+	libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0xffff97cca000)
+	libgcc_s.so.1 => /usr/lib/libgcc_s.so.1 (0xffff97c99000)
+	libc.musl-aarch64.so.1 => /lib/ld-musl-aarch64.so.1 (0xffff9e810000)
+npm and Node headers absent

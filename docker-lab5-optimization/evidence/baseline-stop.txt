@@ -1,0 +1,3 @@
+$ docker stop --timeout 15 devops-lab5-baseline-check-1793773322192
+
+devops-lab5-baseline-check-1793773322192

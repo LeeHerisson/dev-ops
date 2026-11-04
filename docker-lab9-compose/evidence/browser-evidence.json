@@ -1,0 +1,25 @@
+{
+  "measured_at_utc": "2026-11-04T06:09:32.681Z",
+  "pages": [
+    {
+      "endpoint": "/health",
+      "status": 200,
+      "screenshot": "api-health.png"
+    },
+    {
+      "endpoint": "/db-test",
+      "status": 200,
+      "screenshot": "api-database.png"
+    },
+    {
+      "endpoint": "/cache-test",
+      "status": 200,
+      "screenshot": "api-cache.png"
+    },
+    {
+      "endpoint": "/users",
+      "status": 200,
+      "screenshot": "api-users.png"
+    }
+  ]
+}

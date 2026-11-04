@@ -1,0 +1,3 @@
+$ docker run -d --name devops-lab5-baseline-check-1793773056830 --label devops.lab=5 -p 127.0.0.1::3000 devops-lab5-baseline:local
+
+91e8812b04c772889e2302872369d0a0663d044b629496424cc756979548ac0c

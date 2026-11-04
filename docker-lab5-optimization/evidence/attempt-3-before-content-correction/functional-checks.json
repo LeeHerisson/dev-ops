@@ -1,0 +1,52 @@
+{
+  "baseline": {
+    "tag": "devops-lab5-baseline:local",
+    "identity": "uid=0(root) gid=0(root) groups=0(root)",
+    "uid": 0,
+    "runtimeArch": "arm64",
+    "originDuringVerification": "http://127.0.0.1:54198",
+    "http": "passed",
+    "staticAssets": [
+      {
+        "path": "/static/js/main.2fa563fa.js",
+        "status": 200,
+        "bytes": 150114,
+        "contentType": "application/javascript; charset=UTF-8",
+        "sha256": "a885174de85130470e3b988062b2096a71a0b3a078b1e5fb00cbcd12984220fa"
+      },
+      {
+        "path": "/static/css/main.fa947442.css",
+        "status": 200,
+        "bytes": 7580,
+        "contentType": "text/css; charset=UTF-8",
+        "sha256": "313b64a1ef621bec69292f78a64b17eebda2134013a3f414db6c1dc699788d57"
+      }
+    ],
+    "gracefulShutdownExitCode": 0
+  },
+  "optimized": {
+    "tag": "devops-lab5-optimized:local",
+    "identity": "uid=1000(node) gid=1000(node) groups=1000(node)",
+    "uid": 1000,
+    "runtimeArch": "arm64",
+    "originDuringVerification": "http://127.0.0.1:54204",
+    "http": "passed",
+    "staticAssets": [
+      {
+        "path": "/static/js/main.2fa563fa.js",
+        "status": 200,
+        "bytes": 150114,
+        "contentType": "application/javascript; charset=UTF-8",
+        "sha256": "a885174de85130470e3b988062b2096a71a0b3a078b1e5fb00cbcd12984220fa"
+      },
+      {
+        "path": "/static/css/main.fa947442.css",
+        "status": 200,
+        "bytes": 7580,
+        "contentType": "text/css; charset=UTF-8",
+        "sha256": "313b64a1ef621bec69292f78a64b17eebda2134013a3f414db6c1dc699788d57"
+      }
+    ],
+    "gracefulShutdownExitCode": 0
+  }
+}

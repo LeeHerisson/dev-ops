@@ -1,0 +1,5 @@
+$ docker exec devops-lab5-baseline-check-1793773322192 sh -c command -v make && command -v g++ && test -d /app/client/node_modules/react-scripts && echo "frontend toolchain retained in baseline"
+
+/usr/bin/make
+/usr/bin/g++
+frontend toolchain retained in baseline

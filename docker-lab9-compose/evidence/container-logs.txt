@@ -1,0 +1,57 @@
+devops-lab9-api
+127.0.0.1 - - [04/Nov/2026:06:07:31 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+172.19.0.1 - - [04/Nov/2026:06:07:32 +0000] "GET /users HTTP/1.1" 200 92 "-" "Python-urllib/3.12"
+172.19.0.1 - - [04/Nov/2026:06:07:32 +0000] "GET /users/1 HTTP/1.1" 200 116 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:07:36 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:07:41 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:07:46 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:07:51 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:07:56 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:02 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:07 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:12 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:17 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:22 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:27 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:32 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:37 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:42 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:47 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+127.0.0.1 - - [04/Nov/2026:06:08:52 +0000] "GET /health HTTP/1.1" 200 44 "-" "Python-urllib/3.12"
+[2026-11-04 06:07:26 +0000] [1] [INFO] Starting gunicorn 23.0.0
+[2026-11-04 06:07:26 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+[2026-11-04 06:07:26 +0000] [1] [INFO] Using worker: gthread
+[2026-11-04 06:07:26 +0000] [7] [INFO] Booting worker with pid: 7
+[2026-11-04 06:07:26 +0000] [8] [INFO] Booting worker with pid: 8
+
+
+devops-lab9-db
+
+PostgreSQL Database directory appears to contain a database; Skipping initialization
+
+2026-11-04 06:07:21.422 UTC [1] LOG:  starting PostgreSQL 15.19 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+2026-11-04 06:07:21.422 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-11-04 06:07:21.422 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-11-04 06:07:21.426 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-04 06:07:21.429 UTC [29] LOG:  database system was shut down at 2026-11-04 06:07:20 UTC
+2026-11-04 06:07:21.431 UTC [1] LOG:  database system is ready to accept connections
+
+
+devops-lab9-redis
+1:C 04 Nov 2026 06:07:21.471 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 04 Nov 2026 06:07:21.471 * Redis version=7.4.12, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 04 Nov 2026 06:07:21.471 * Configuration loaded
+1:M 04 Nov 2026 06:07:21.471 * monotonic clock: POSIX clock_gettime
+1:M 04 Nov 2026 06:07:21.472 * Running mode=standalone, port=6379.
+1:M 04 Nov 2026 06:07:21.472 * Server initialized
+1:M 04 Nov 2026 06:07:21.472 * Reading RDB base file on AOF loading...
+1:M 04 Nov 2026 06:07:21.472 * Loading RDB produced by version 7.4.12
+1:M 04 Nov 2026 06:07:21.472 * RDB age 96 seconds
+1:M 04 Nov 2026 06:07:21.472 * RDB memory usage when created 0.94 Mb
+1:M 04 Nov 2026 06:07:21.472 * RDB is base AOF
+1:M 04 Nov 2026 06:07:21.472 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 04 Nov 2026 06:07:21.472 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 04 Nov 2026 06:07:21.473 * DB loaded from incr file appendonly.aof.1.incr.aof: 0.001 seconds
+1:M 04 Nov 2026 06:07:21.473 * DB loaded from append only file: 0.001 seconds
+1:M 04 Nov 2026 06:07:21.473 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 04 Nov 2026 06:07:21.473 * Ready to accept connections tcp

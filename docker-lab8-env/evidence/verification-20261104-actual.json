@@ -1,0 +1,178 @@
+{
+  "checked_at": "2026-11-04T06:06:14.949286+00:00",
+  "run_id": "20261104-actual",
+  "image_id": "sha256:27b27ba948f38cdb6948a1d5148d428a8e3d20f95e364dd3d3a502e04bec3192",
+  "engine": "29.9.2/linux/arm64",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "development: HTTP и режим DEBUG",
+      "passed": true
+    },
+    {
+      "name": "development: реальный PostgreSQL и нужная БД",
+      "passed": true
+    },
+    {
+      "name": "development: процесс non-root",
+      "passed": true
+    },
+    {
+      "name": "production: HTTP и режим DEBUG",
+      "passed": true
+    },
+    {
+      "name": "production: реальный PostgreSQL и нужная БД",
+      "passed": true
+    },
+    {
+      "name": "production: процесс non-root",
+      "passed": true
+    },
+    {
+      "name": "Оба режима используют один и тот же image ID",
+      "passed": true
+    },
+    {
+      "name": "Данные development не появились в production",
+      "passed": true
+    },
+    {
+      "name": "Сети и volumes двух окружений различны",
+      "passed": true
+    },
+    {
+      "name": "Пароли и SECRET_KEY сред независимы",
+      "passed": true
+    },
+    {
+      "name": "Валидация контейнера: missing",
+      "passed": true
+    },
+    {
+      "name": "Диагностика missing не раскрыла секреты",
+      "passed": true
+    },
+    {
+      "name": "Валидация контейнера: debug",
+      "passed": true
+    },
+    {
+      "name": "Диагностика debug не раскрыла секреты",
+      "passed": true
+    },
+    {
+      "name": "Валидация контейнера: port-text",
+      "passed": true
+    },
+    {
+      "name": "Диагностика port-text не раскрыла секреты",
+      "passed": true
+    },
+    {
+      "name": "Валидация контейнера: port-range",
+      "passed": true
+    },
+    {
+      "name": "Диагностика port-range не раскрыла секреты",
+      "passed": true
+    },
+    {
+      "name": "Валидация контейнера: prod-debug",
+      "passed": true
+    },
+    {
+      "name": "Диагностика prod-debug не раскрыла секреты",
+      "passed": true
+    },
+    {
+      "name": "HTTP ответы не содержат секретов",
+      "passed": true
+    }
+  ],
+  "http": {
+    "development": {
+      "home_status": 200,
+      "home": {
+        "database_host": "db",
+        "debug": true,
+        "environment": "development",
+        "message": "Config API"
+      },
+      "database_status": 200,
+      "database": {
+        "database": "devdb",
+        "database_user": "devuser",
+        "database_version": "PostgreSQL 15.19 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+        "status": "success"
+      }
+    },
+    "production": {
+      "home_status": 200,
+      "home": {
+        "database_host": "db",
+        "debug": false,
+        "environment": "production",
+        "message": "Config API"
+      },
+      "database_status": 200,
+      "database": {
+        "database": "proddb",
+        "database_user": "produser",
+        "database_version": "PostgreSQL 15.19 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+        "status": "success"
+      }
+    }
+  },
+  "resources": {
+    "development": {
+      "database": "devops-lab8-20261104-actual-dev-db",
+      "app": "devops-lab8-20261104-actual-dev-app",
+      "network": "devops-lab8-20261104-actual-dev-network",
+      "volume": "devops-lab8-20261104-actual-dev-data",
+      "url": "http://127.0.0.1:53415"
+    },
+    "production": {
+      "database": "devops-lab8-20261104-actual-prod-db",
+      "app": "devops-lab8-20261104-actual-prod-app",
+      "network": "devops-lab8-20261104-actual-prod-network",
+      "volume": "devops-lab8-20261104-actual-prod-data",
+      "url": "http://127.0.0.1:53421"
+    }
+  },
+  "validation": {
+    "missing": {
+      "exit_code": 1,
+      "expected_field": "Missing required variables",
+      "secret_values_absent": true
+    },
+    "debug": {
+      "exit_code": 1,
+      "expected_field": "DEBUG",
+      "secret_values_absent": true
+    },
+    "port-text": {
+      "exit_code": 1,
+      "expected_field": "DB_PORT",
+      "secret_values_absent": true
+    },
+    "port-range": {
+      "exit_code": 1,
+      "expected_field": "DB_PORT",
+      "secret_values_absent": true
+    },
+    "prod-debug": {
+      "exit_code": 1,
+      "expected_field": "DEBUG",
+      "secret_values_absent": true
+    }
+  },
+  "stopped_at": "2026-11-04T06:08:22.738928+00:00",
+  "final_container_states": {
+    "devops-lab8-20261104-actual-prod-app": "exited",
+    "devops-lab8-20261104-actual-prod-db": "exited",
+    "devops-lab8-20261104-actual-dev-app": "exited",
+    "devops-lab8-20261104-actual-dev-db": "exited"
+  },
+  "all_own_containers_stopped": true
+}

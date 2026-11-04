@@ -1,0 +1,12 @@
+{
+  "metric": "docker image inspect .Size, bytes; decimal MB = bytes / 1000000",
+  "baselineBytes": 2162108054,
+  "optimizedBytes": 178782076,
+  "baselineMB": 2162.108054,
+  "optimizedMB": 178.782076,
+  "reductionFactor": 12.093539253901493,
+  "baselineArchitecture": "linux/arm64",
+  "optimizedArchitecture": "linux/arm64",
+  "baselineImageId": "sha256:11a59fccc9d0f8077c0456c99a32e53af4e582995757010ce9873724a0142d82",
+  "optimizedImageId": "sha256:10495bc80b200335d3f1dfbd11cc66ee256ead03e34fd9b1e867a212a9111eef"
+}
