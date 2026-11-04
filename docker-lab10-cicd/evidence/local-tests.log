@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-8.4.2, pluggy-1.7.0 -- /Users/herisson/Documents/Codex/2026-11-02/new-chat/work/todo-venv/bin/python
+rootdir: /Users/herisson/Documents/Codex/2026-11-02/new-chat/outputs/DevOps-completed/docker-lab10-cicd
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 10 items
+
+tests/test_extended.py::test_second_todo_has_id_two PASSED               [ 10%]
+tests/test_extended.py::test_title_is_trimmed PASSED                     [ 20%]
+tests/test_extended.py::test_whitespace_title_is_rejected PASSED         [ 30%]
+tests/test_extended.py::test_json_array_is_rejected PASSED               [ 40%]
+tests/test_extended.py::test_non_string_title_is_rejected PASSED         [ 50%]
+tests/test_extended.py::test_long_title_is_rejected PASSED               [ 60%]
+tests/test_main.py::test_health PASSED                                   [ 70%]
+tests/test_main.py::test_list_is_empty_at_start PASSED                   [ 80%]
+tests/test_main.py::test_add_todo PASSED                                 [ 90%]
+tests/test_main.py::test_add_todo_without_title PASSED                   [100%]
+
+============================== 10 passed in 0.01s ==============================

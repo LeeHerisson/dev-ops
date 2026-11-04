@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-11-04T06:04:57.277193+00:00",
+  "platform": "linux/arm64",
+  "tests": 10,
+  "baseline_size_bytes": 242127746,
+  "runtime_size_bytes": 210340913,
+  "reduction_bytes": 31786833,
+  "reduction_percent": 13.13,
+  "runtime_user": "10001:10001",
+  "pytest_in_runtime": false,
+  "http_check": "passed",
+  "negative_health_experiment": "expected test failure; corrected suite passed",
+  "docker_hub_publication": "excluded by user request",
+  "github_actions_run": "not executed yet"
+}

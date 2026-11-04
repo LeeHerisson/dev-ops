@@ -1,0 +1,1 @@
+Graceful shutdown exit code: 0

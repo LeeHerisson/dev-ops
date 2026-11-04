@@ -1,0 +1,42 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.baseline
+#1 transferring dockerfile: 263B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 127B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 208B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+#5 resolve docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30 done
+#5 DONE 0.0s
+
+#6 [2/5] WORKDIR /code
+#6 CACHED
+
+#7 [3/5] COPY requirements.txt requirements-dev.txt ./
+#7 CACHED
+
+#8 [4/5] RUN pip install --no-cache-dir -r requirements-dev.txt
+#8 CACHED
+
+#9 [5/5] COPY app/ app/
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:50a537699540860c2351eae9bfe8792c3aade7023551f4cd1a864431e8c370b6 done
+#10 exporting config sha256:e55827a47c0daed8829086ab085b189f73c99d2ff0c13e868111fd1f8060f302 done
+#10 exporting attestation manifest sha256:2672249be0aba94267dfccccdeb6606068d8f17cf314311a2fc80bb3324b4d43 done
+#10 exporting manifest list sha256:8206227e8df8ec21990f121181f218d50d2eb80bb79026401eaac86ab6fde0c9 done
+#10 naming to docker.io/library/devops-lab10-todo:baseline done
+#10 unpacking to docker.io/library/devops-lab10-todo:baseline done
+#10 DONE 0.0s

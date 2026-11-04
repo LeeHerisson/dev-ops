@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-8.4.2, pluggy-1.7.0 -- /Users/herisson/Documents/Codex/2026-11-02/new-chat/work/todo-venv/bin/python
+rootdir: /Users/herisson/Documents/Codex/2026-11-02/new-chat/work/devops-ci/broken-health
+configfile: pytest.ini
+collecting ... collected 1 item
+
+tests/test_main.py::test_health FAILED                                   [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_health __________________________________
+
+client = <FlaskClient <Flask 'app.main'>>
+
+    def test_health(client):
+        response = client.get("/health")
+        assert response.status_code == 200
+>       assert response.get_json() == {"status": "ok"}
+E       AssertionError: assert {'status': 'OK'} == {'status': 'ok'}
+E         
+E         Differing items:
+E         {'status': 'OK'} != {'status': 'ok'}
+E         
+E         Full diff:
+E           {
+E         -     'status': 'ok',...
+E         
+E         ...Full output truncated (4 lines hidden), use '-vv' to show
+
+../../../outputs/DevOps-completed/docker-lab10-cicd/tests/test_main.py:4: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_main.py::test_health - AssertionError: assert {'status': 'O...
+============================== 1 failed in 0.03s ===============================

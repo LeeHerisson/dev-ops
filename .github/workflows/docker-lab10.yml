@@ -1,0 +1,70 @@
+name: Docker Lab 10 CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - docker-lab10-cicd/**
+      - '!docker-lab10-cicd/**/*.md'
+      - '!docker-lab10-cicd/evidence/**'
+      - .github/workflows/docker-lab10.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - docker-lab10-cicd/**
+      - .github/workflows/docker-lab10.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docker-lab10-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: docker-lab10-cicd
+
+jobs:
+  test:
+    name: Test Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - name: Get code
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install development dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Run API tests
+        run: python -m pytest -v
+
+  build-image:
+    name: Build and smoke-test Docker image
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Get code
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Build runtime and test HTTP
+        env:
+          IMAGE: devops-lab10-todo:${{ github.sha }}
+        run: bash scripts/check.sh
+      - name: Add local run-number tag
+        run: |
+          docker tag devops-lab10-todo:${{ github.sha }} devops-lab10-todo:v${{ github.run_number }}
+          docker image inspect devops-lab10-todo:${{ github.sha }} --format '{{.Id}} {{.Size}}'
