@@ -1,3 +1,4 @@
+import os
 from threading import Lock
 
 from flask import Flask, jsonify, request
@@ -10,6 +11,12 @@ lock = Lock()
 @app.get("/health")
 def health():
     return jsonify(status="ok")
+
+
+@app.get("/version")
+def version():
+    # Render передаёт SHA задеплоенного коммита в RENDER_GIT_COMMIT.
+    return jsonify(commit=os.environ.get("RENDER_GIT_COMMIT", "local"))
 
 
 @app.get("/todos")
@@ -36,4 +43,5 @@ def add_todo():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    # PaaS (Render) сам назначает порт через переменную PORT.
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "5000")))

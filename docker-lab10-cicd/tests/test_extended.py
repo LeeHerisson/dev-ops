@@ -25,3 +25,10 @@ def test_non_string_title_is_rejected(client):
 
 def test_long_title_is_rejected(client):
     assert client.post("/todos", json={"title": "x" * 2001}).status_code == 400
+
+
+def test_version_reports_commit(client, monkeypatch):
+    monkeypatch.setenv("RENDER_GIT_COMMIT", "abc123")
+    response = client.get("/version")
+    assert response.status_code == 200
+    assert response.get_json() == {"commit": "abc123"}

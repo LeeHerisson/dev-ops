@@ -1,0 +1,20 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: devops-todo-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    dockerContext: ./docker-lab10-cicd
+    dockerfilePath: ./docker-lab10-cicd/Dockerfile
+    healthCheckPath: /health
+    # Деплой только после того, как все CI-проверки коммита в GitHub зелёные.
+    autoDeployTrigger: checksPass
+    # Пересобирать только при изменении кода приложения.
+    buildFilter:
+      paths:
+        - docker-lab10-cicd/**
+      ignoredPaths:
+        - docker-lab10-cicd/**/*.md
+        - docker-lab10-cicd/evidence/**
