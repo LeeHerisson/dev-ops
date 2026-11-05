@@ -10,7 +10,7 @@ lock = Lock()
 
 @app.get("/health")
 def health():
-    return jsonify(status="ok")
+    return jsonify(status="OK")
 
 
 @app.get("/version")
